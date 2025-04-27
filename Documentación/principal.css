@@ -1,0 +1,40 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 0;
+	margin-bottom: 40px;
+	line-height: 1.5;
+}
+
+.contenedor {
+	margin-left: 25%;
+	padding: 10px 50px;
+	height: fit-content;
+}
+pre {
+	background-color: rgb(231, 229, 229);
+	border-radius: 2px;
+	padding: 10px 20px;
+}
+code {
+	font-size: 14px;
+	background-color: rgb(231, 229, 229);
+	white-space: pre-wrap;
+}
+img {
+	width: 100%;
+	margin-bottom: 10px;
+}
+h2 {
+	margin-top: 35px;
+}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+th,
+td {
+	border: 1px solid black;
+	padding: 12px 16px;
+}

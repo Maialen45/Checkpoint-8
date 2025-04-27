@@ -1,0 +1,30 @@
+.navbar {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	padding-top: 10px;
+	width: 25%;
+	background-color: #f1f1f1;
+	position: fixed;
+	height: 100%;
+	overflow: auto;
+}
+
+.navbar > li a {
+	display: block;
+	color: #000;
+	padding: 12px 16px 12px 25px;
+	text-decoration: none;
+	font-size: 18px;
+}
+
+.navbar > li a.active {
+	background-color: #f7e018;
+	color: black;
+	font-weight: 800;
+}
+
+.navbar > li a:hover:not(.active) {
+	background-color: #555;
+	color: white;
+}

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="navbar.css" />
+		<link rel="stylesheet" href="principal.css" />
+		<title>Documentación de JavaScript</title>
+	</head>
+	<body>
+		<ul class="navbar">
+			<li><a href="inicio.html">Inicio</a></li>
+			<li><a href="bucles.html">Tipos de bucles</a></li>
+			<li><a href="variables.html">Var, let y const</a></li>
+			<li><a href="funciones-flecha.html">Funciones flecha</a></li>
+			<li>
+				<a href="deconstruccion.html">Deconstrucción de variables</a>
+			</li>
+			<li>
+				<a href="operador-extension.html">Operador de extensión</a>
+			</li>
+			<li><a href="oop.html">Programación orientada a objetos</a></li>
+			<li><a class="active" href="#promesas">Promesas</a></li>
+			<li><a href="async-await.html">Async/await</a></li>
+		</ul>
+		<div class="contenedor">
+			<h1>Promesas</h1>
+			<p>
+				Las promesas en JavaScript con un mecanismo para controlar la
+				asincronía. Es decir, JavaScript funciona con un único hilo en
+				el que las tareas progresan simultáneamente. Sin embargo, si
+				tenemos que consultar una base de datos u obtener información de
+				una API, no queremos que nuestro programa se quede esperando y
+				no cargue el resto de la página. En su lugar, queremos que
+				cargue toda la página mientras consulta la base de datos o hace
+				la petición a la API y, una vez haya cargado toda la página,
+				devuelva los datos o el resultado de la petición. Para ello
+				existen las promesas. Es una forma de decirle al programa que
+				siga realizando otras tareas mientras consultamos la base de
+				datos o la API, y le prometemos que cuando tengamos los datos se
+				los mandamos. De lo contrario, el programa se quedaría esperando
+				a obtener los datos y dejaría de cargar el resto de la página.
+			</p>
+			<p>Las promesas se crean de la siguiente manera:</p>
+			<pre><code>let promesa = new Promise((resolve, reject) => {
+	setTimeout(() => {
+		resolve('Funciona')
+	}, 2000)
+	setTimeout(() => {
+		reject('No funciona')
+	}, 2000)
+}) 
+  
+promesa
+	.then(data => {console.log(data)})
+	.catch(err => {console.error(err)})</code></pre>
+			<img src="/Imagenes/prom.png" alt="" />
+			<p>
+				Creamos una variable de nombre 'promesa' y en su interior
+				creamos una nueva promesa con <code>new Promise</code>. Las
+				promesas siempre tienen dos argumentos, <code>resolve</code> y
+				<code>reject</code>, por tanto, tenemos que crear dos funciones,
+				una que se ejecutará si la promesa se resuelve, y otra que se
+				ejecutará cuando la promesa no se resuelva. En este caso, para
+				simular que pedimos los datos a una base de datos y que tarda un
+				poco en cargar los datos, vamos a utilizar la función
+				<code>setTimeout</code>. Esta función crea un temporizador, de
+				forma que lo que sea que devuelve la función lo hace al cabo de
+				los milisegundos que le digamos. En el ejemplo de arriba tarda
+				dos segundos en devolver 'funciona' en el caso de que la promesa
+				se resuelva. En el caso contrario, al de dos segundos imprime
+				'No funciona'. Esa es la primera parte de la promesa, pero ahora
+				tenemos que llamar a la promesa. Para ello nombramos la variable
+				en la que se encuentra la promesa ('promesa') y le decimos
+				<code>.then(data => {console.log(data)})</code>. Esto lo que
+				significa es que cuando encuentre la promesa va a crear una
+				función con una variable de nombre 'data' en la que va a
+				almacenar el resultado de la promesa resuelta, y esa función va
+				a devolver los datos de la promesa resuelta, es decir, 'data' en
+				la consola. A parte de devolver los datos si la promesa se
+				resuelve, queremos que si no se resuelve nos indique un error en
+				la consola. Para eso escribimos
+				<code>.catch(err => {console.error(err)})</code>. Eso significa
+				que si no se resuelve la promesa crea una variable de nombre
+				'err', que contiene el reject de la promesa, y devuelve en la
+				consola el contenido de la variable 'err'
+			</p>
+			<h2>Promesas para comunicarse con APIs</h2>
+			<p>
+				Un uso muy común de las promesas es para comunicarse con APIs y
+				mostrar sus datos en nuestra aplicación o página web. Para ello
+				hay que utilizar la palabra clave <code>fetch</code>. Vamos a
+				ver cómo se haría esto.
+			</p>
+			<pre><code>const postPromesa = fetch("https://jsonplaceholder.typicode.com/posts")
+postPromesa
+	.then(data => data.json())
+	.then (data => {console.log(data)})
+	.catch (err => {console.error(err)})</code></pre>
+			<img src="/Imagenes/prom-api.png" alt="" />
+			<p>
+				Hemos creado una promesa, pero en lugar de escribir
+				<code>new Promise</code> y pasarle como argumentos
+				<code>resolve</code> y <code>reject</code>, le hemos pasado la
+				palabra clave <code>fetch</code>. <code>Fetch</code> inicia la
+				promesa, de forma que contiene <code>new Promise</code>,
+				<code>resolve</code> y <code>reject</code>. Además, al
+				<code>fetch</code> le tenemos que pasar la url de la api que
+				queramos obtener los datos. Después, llamamos a la promesa y le
+				decimos que si la resuelve nos cambie los datos obtenidos a
+				formato json <code>.then(data => data.json())</code> y luego
+				imprima los datos
+				<code>.then (data => {console.log(data)})</code>. Si no resuelve
+				la promesa queremos que nos devuelva el error
+				<code>.catch (err => {console.error(err)})</code>.
+			</p>
+			<p>
+				Ahora que ya sabemos el formato que tiene los datos que nos
+				devuelve la API, en lugar de pedirle que nos devuelva todos los
+				datos, vamos a ver cómo podemos pedirle que nos devuelva solo
+				los títulos de los post, por ejemplo.
+			</p>
+			<pre><code>const postPromesa = fetch("https://jsonplaceholder.typicode.com/posts")
+postPromesa
+	.then(data => data.json())
+	.then (data => data.forEach((item) => {console.log(item.title)}))
+	.catch (err => {console.error(err)})</code></pre>
+			<img src="/Imagenes/prom-api-title.png" alt="" />
+			<p>
+				En lugar de decirle
+				<code>.then (data => {console.log(data)})</code> le decimos que
+				por cada item, nos devuelva el título de ese item. En este caso
+				el array no tiene nombre, por eso se pone directamente
+				<code>data.forEach</code>, pero si el array tuviera un nombre
+				habría que ponerlo entre el <code>data</code> y el
+				<code>forEach</code>.
+			</p>
+			<p>
+				Si hubiera algún error y no se pudieran obtener los datos de la
+				API, vamos a ver lo que pasa. Para ello vamos a simular que la
+				url está mal escribiendo 'htts', en lugar de 'https'.
+			</p>
+			<pre><code>const postPromesa = fetch("htts://jsonplaceholder.typicode.com/posts")
+postPromesa
+	.then(data => data.json())
+	.then (data => data.forEach((item) => {console.log(item.title)}))
+	.catch (() => {console.error('Error')})</code></pre>
+			<img src="/Imagenes/prom-api-error.png" alt="" />
+			<p>
+				He modificado el
+				<code>.catch (() => {console.error('Error')})</code> para que,
+				en caso de error, devuelva una cadena y sea más visual.
+			</p>
+			<h2>Gestión de varias promesas</h2>
+			<p>
+				Es posible que, en lugar de tener una única promesa tengamos
+				varias y queramos llamarlas a la vez. Para eso utilizaremos
+				<code>Promise.all</code>. Vamos a imaginar que tenemos una
+				página web en la que queremos saludar al usuario cuando inicie
+				sesión y luego queremos actualizar los datos.
+			</p>
+			<pre><code>const saludo = new Promise((resolve, reject) => {
+	resolve('Hola');
+	reject('Ocurrió un error')
+})
+const actualizacion = new Promise((resolve, reject) => {
+	resolve('Actualizando...');
+	reject('Ocurrió un error')
+})
+const inicioSesion = Promise.all([saludo, actualizacion])
+inicioSesion
+	.then(data => data.forEach(actividad => {console.log(actividad)}))</code></pre>
+			<img src="/Imagenes/prom-promall.png" alt="" />
+			<p>
+				Creamos dos promesas, una para saludar y otra para actualizar
+				los datos. Posteriormente, creamos una variable en la cual
+				escribimos <code>Promise.all</code> y, en su interior creamos
+				una lista con las promesas 'saludo' y 'actualizacion'. Ahora
+				solo queda decirle que, cuando encuentre los datos, por cada
+				actividad, devuelva el saludo y la actualización. Es decir, hay
+				que iterar por los elementos de la lista para que ejecute las
+				promesas.
+			</p>
+		</div>
+	</body>
+</html>

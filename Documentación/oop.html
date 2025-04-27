@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="principal.css" />
+		<link rel="stylesheet" href="navbar.css" />
+		<title>Documentación de JavaScript</title>
+	</head>
+	<body>
+		<ul class="navbar">
+			<li><a href="inicio.html">Inicio</a></li>
+			<li><a href="bucles.html">Tipos de bucles</a></li>
+			<li><a href="variables.html">Var, let y const</a></li>
+			<li><a href="funciones-flecha.html">Funciones flecha</a></li>
+			<li>
+				<a href="deconstruccion.html">Deconstrucción de variables</a>
+			</li>
+			<li>
+				<a href="operador-extension.html">Operador de extensión</a>
+			</li>
+			<li>
+				<a class="active" href="#oop"
+					>Programación orientada a objetos</a
+				>
+			</li>
+			<li><a href="promesas.html">Promesas</a></li>
+			<li><a href="async-await.html">Async/await</a></li>
+		</ul>
+		<div class="contenedor">
+			<h2>Programación orientada a objetos</h2>
+			<p>
+				La programación orientada a objetos es un modelo de programación
+				en el que el código se organiza de forma que, en lugar de
+				utilizar funciones, se utilizan objetos. Se crea un modelo con
+				unos atributos y unas funciones y, posteriormente, podremos
+				crear todos los objetos que queramos con esos atributos y
+				funciones. De esta forma se puede crear un código más limpio,
+				evitando las repeticiones de código y reutilizando el código.
+				Además, ayuda en la disminución de errores, al no tener que
+				repetir el código para cada objeto que queramos crear.
+			</p>
+			<p>
+				Se podría decir que las clases en JavaScript son el plano o la
+				plantilla sobre el cual se crean los objetos. De forma que si la
+				clase tiene 3 atributos y una función, todos los objetos creados
+				a partir de esa clase, tendrán 3 atributos y 1 función.
+			</p>
+			<p>
+				Para crear una clase utilizaremos la palabra clave
+				<code>class</code> seguida del nombre que le queramos dar a la
+				clase, con la primera letra en mayúsculas. En el interior de la
+				clase crearemos la función <code>constructor</code>, en la cual
+				pasaremos los argumentos que queramos que tenga nuestra clase.
+				Los argumentos del constructor se pueden pasar como objeto o
+				como valores individuales. En el primer caso, los pondremos,
+				además de entre paréntesis, entre corchetes. Finalmente, en el
+				interior de la función constructora tenemos que escribir los
+				atributos, que serán los argumentos precedidos de la palabra
+				clave <code>this</code>, que hace referencia a que ese atributo
+				pertenece a la clase. Vamos a ver dos ejemplos, el primero de
+				ellos pasando un objeto como atributo y, el segundo, pasando
+				argumentos individuales.
+			</p>
+			<pre><code>class Animal {
+	constructor({especie, patas}) {
+	  	this.especie = especie;
+	  	this.patas = patas;
+	}
+}</code></pre>
+			<p>
+				Hemos creado la clase animal a la función constructor le hemos
+				pasado un objeto con dos elementos, la especie del animal y el
+				número de patas. Si pasamos los elementos del objeto como
+				argumentos individuales quedaría así:
+			</p>
+			<pre><code>class Animal2 {
+	constructor(especie, patas) {
+	  	this.especie = especie;
+	  	this.patas = patas;
+	}
+}</code></pre>
+			<p>
+				Estas clase de por sí no hacen nada, son solo la base para crear
+				nuevos objetos, es decir, ahora podemos crear tantos animales
+				como queramos y todos ellos tendran dos atributos que son la
+				especie y el número de patas. Al proceso de crear un nuevo
+				objeto se le conoce como instanciar. Para ello hay que crear una
+				nueva variable y, en su interior crear un nuevo animal que tenga
+				la especie y el número de patas. Vamos a ver cómo se crearía el
+				objeto con la primera clase y con la segunda.
+			</p>
+			<img src="/Imagenes/poo-class2.png" alt="" />
+			<p>
+				Como se puede observar el resultado en ambos casos es el mismo,
+				se crea un objeto con el nombre de la especie y el número de
+				patas. Sin embargo, a la hora de instanciar hay que tener
+				cuidado porque, se la primer forma tenemos que escribir
+				<code>({especie: 'perro', patas: 4})</code>, mientras que de la
+				segunda forma, no tenemos que especificar en qué clave queremos
+				meter los datos, sino que los mete en el orden en el que hayamos
+				escrito los argumentos. A pesar de que el resultado es el mismo,
+				conviene utilizar la primera forma si hay muchos argumentos, ya
+				que a la hora de instanciar no importará el orden en el que
+				pasemos los argumentos.
+			</p>
+			<h2>Métodos de una clase</h2>
+			<p>
+				Las funciones asociadas a objetos se conocen como métodos.
+				Existen métodos de instancia y métodos estáticos.
+			</p>
+			<h3>Métodos de instancia</h3>
+			<p>
+				Para ejecutar estos métodos hay que crear un objeto, es decir,
+				no se pueden llamar sin haber instanciado la clase antes. Son
+				exclusivos de la clase y no se pueden utilizar fuera de ella.
+				Siguiendo con el ejemplo anterior, vamos a crear un método de
+				instancia que cree una frase con los datos del animal.
+			</p>
+			<pre><code>class Animal {
+	constructor({especie, patas}) {
+	  	this.especie = especie;
+	  	this.patas = patas;
+	}
+	detallesAnimal() {
+	  	console.log(`El nuevo animal es un ${this.especie} y tiene ${this.patas} patas`)
+	}
+}
+  
+const perro = new Animal({especie: 'perro', patas: 4})
+perro.detallesAnimal()
+  </code></pre>
+			<img src="/Imagenes/poo-instance.png" alt="" />
+			<p>
+				Hemos creado un método de instancia que se llama
+				'detallesAnimal' y que devuelve una frase con los datos del
+				animal. Como se puede observar, a la hora de pasar los atributos
+				en la frase, es necesario poner el <code>this</code>. De lo
+				contrario daría error porque sería incapaz de encontrar ese
+				atributo. Como los métodos de instancia pertenecen a la clase,
+				no es necesario pasar los atributos como argumentos porque ya
+				tiene acceso a ellos con el <code>this</code>. Por otro lado, si
+				intentamos llamar directamente a la función 'detallesAnimal'
+				desde la clase, obtendremos un error.
+			</p>
+			<img src="/Imagenes/poo-instance-error.png" alt="" />
+			<h3>Métodos estáticos</h3>
+			<p>
+				Estos métodos no requieren un objeto, sino que se pueden llamar
+				desde la propia clase. Para saber si utilizar un método de
+				instancia o un método estático nos tenemos que preguntar si ese
+				método pertenece realmente a la clase o no. Esto se debe a que
+				los métodos estáticos pertenecen a la clase en sí y no a un
+				objeto concreto.
+			</p>
+			<p>
+				Vamos a crear un método estático que devuelva
+				<code>true</code> si el animal es cuadrúpedo. Este método no va
+				a depender de un objeto porque le vamos a pasar el número de
+				patas como argumento. Por tanto, no va a tener que acceder a
+				ningún atributo del objeto.
+			</p>
+			<pre><code>class Animal {
+	constructor({especie, patas}) {
+	  	this.especie = especie;
+	  	this.patas = patas;
+	}
+	detallesAnimal() {
+	  	console.log(`El nuevo animal es un ${this.especie} y tiene ${this.patas} patas`)
+	}
+	static esCuadrupedo(patas) {
+	  	return patas == 4
+	}
+}
+  
+console.log(Animal.esCuadrupedo(2))</code></pre>
+			<img src="/Imagenes/poo-static.png" alt="" />
+			<p>
+				Como se puede observar este método lo llamamos desde la clase
+				<code>Animal.esCuadrupedo(2)</code>, no desde un objeto. De
+				hecho, si instanciamos la clase, creando un objeto, y llamamos
+				este método estático desde el objeto, obtendremos un error.
+			</p>
+			<img src="/Imagenes/poo-instance-error.png" alt="" />
+		</div>
+	</body>
+</html>

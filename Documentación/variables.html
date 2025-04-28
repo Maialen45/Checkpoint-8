@@ -1,230 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="/Estilos/principal.css" />
-		<link rel="stylesheet" href="/Estilos/navbar.css" />
-		<title>Documentación de JavaScript</title>
-	</head>
-	<body>
-		<ul class="navbar">
-			<li><a href="inicio.html">Inicio</a></li>
-			<li><a href="bucles.html">Tipos de bucles</a></li>
-			<li>
-				<a class="active" href="#variables">Var, let y const</a>
-			</li>
-			<li><a href="funciones-flecha.html">Funciones flecha</a></li>
-			<li>
-				<a href="deconstruccion.html">Deconstrucción de variables</a>
-			</li>
-			<li>
-				<a href="operador-extension.html">Operador de extensión</a>
-			</li>
-			<li><a href="oop.html">Programación orientada a objetos</a></li>
-			<li><a href="promesas.html">Promesas</a></li>
-			<li><a href="async-await.html">Async/await</a></li>
-		</ul>
-		<div class="contenedor">
-			<h1>Variables var, let y const</h1>
-			<p>
-				Las variables permiten almacenar datos de forma que se puedan
-				utilizar fácilmente más adelante en el código. En JavaScript
-				existen 3 formas de declarar las variables: <code>var</code>,
-				<code>let</code> y <code>const</code>. Las diferencias entre
-				ellas radican en la mutabilidad del contenido y en el alcance de
-				la variable.
-			</p>
-			<h2>Var</h2>
-			<p>
-				Una variable <code>var</code> puede tener un alcance global, si
-				no se encuentra dentro de ninguna función, o un alcance de
-				función, si se encuentra dentro de una función. El alcance
-				global significa que podremos acceder a esa variable desde
-				cualquier punto del código. Sin embargo, si la variable
-				<code>var</code> está declarada dentro de una función, solo
-				podremos acceder a ella desde la propia función.
-			</p>
-			<pre><code>var saludo = 'Hola'
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="Estilos/principal.css" />
+        <link rel="stylesheet" href="Estilos/navbar.css" />
+        <title>Documentación de JavaScript</title>
+    </head>
+    <body>
+        <ul class="navbar">
+            <li><a href="inicio.html">Inicio</a></li>
+            <li><a href="bucles.html">Tipos de bucles</a></li>
+            <li>
+                <a class="active" href="#variables">Var, let y const</a>
+            </li>
+            <li><a href="funciones-flecha.html">Funciones flecha</a></li>
+            <li>
+                <a href="deconstruccion.html">Deconstrucción de variables</a>
+            </li>
+            <li>
+                <a href="operador-extension.html">Operador de extensión</a>
+            </li>
+            <li><a href="oop.html">Programación orientada a objetos</a></li>
+            <li><a href="promesas.html">Promesas</a></li>
+            <li><a href="async-await.html">Async/await</a></li>
+        </ul>
+        <div class="contenedor">
+            <h1>Variables var, let y const</h1>
+            <p>
+                Las variables permiten almacenar datos de forma que se puedan
+                utilizar fácilmente más adelante en el código. En JavaScript
+                existen 3 formas de declarar las variables: <code>var</code>,
+                <code>let</code> y <code>const</code>. Las diferencias entre
+                ellas radican en la mutabilidad del contenido y en el alcance de
+                la variable.
+            </p>
+            <h2>Var</h2>
+            <p>
+                Una variable <code>var</code> puede tener un alcance global, si
+                no se encuentra dentro de ninguna función, o un alcance de
+                función, si se encuentra dentro de una función. El alcance
+                global significa que podremos acceder a esa variable desde
+                cualquier punto del código. Sin embargo, si la variable
+                <code>var</code> está declarada dentro de una función, solo
+                podremos acceder a ella desde la propia función.
+            </p>
+            <pre><code>var saludo = 'Hola'
 function saludar() {
 	console.log(saludo)
 }
 saludar()</code></pre>
-			<img src="/Imagenes/var-var1.png" alt="" srcset="" />
-			<p>
-				En el ejemplo anterior la variable saludo está fuera de la
-				función, por lo que es global y se puede utilizar desde dentro
-				de la función. Si metemos la variable saludo dentro de la
-				función, observamos que la función saludar se ejecuta
-				correctamente, es decir, tiene acceso a la variable saludo. Sin
-				embargo, si intentamos visualizar el contenido de la variable
-				saludo desde fuera de la función, se crea un error porque la
-				variable está sin definir, es decir, no encuentra la variable
-				saludo porque solo existe dentro de la función.
-			</p>
-			<pre><code>function saludar() {
+            <img src="/Imagenes/var-var1.png" alt="" srcset="" />
+            <p>
+                En el ejemplo anterior la variable saludo está fuera de la
+                función, por lo que es global y se puede utilizar desde dentro
+                de la función. Si metemos la variable saludo dentro de la
+                función, observamos que la función saludar se ejecuta
+                correctamente, es decir, tiene acceso a la variable saludo. Sin
+                embargo, si intentamos visualizar el contenido de la variable
+                saludo desde fuera de la función, se crea un error porque la
+                variable está sin definir, es decir, no encuentra la variable
+                saludo porque solo existe dentro de la función.
+            </p>
+            <pre><code>function saludar() {
 	var saludo = 'Hola'
 	console.log(saludo)
 }
 saludar()
 console.log(saludo)</code></pre>
-			<img src="/Imagenes/var-var2.png" alt="" />
-			<p>
-				Además, esta variable es mutable, lo que significa que podremos
-				modificar su contenido a lo largo del código.
-			</p>
-			<pre><code>var saludo = 'Hola'
+            <img src="/Imagenes/var-var2.png" alt="" />
+            <p>
+                Además, esta variable es mutable, lo que significa que podremos
+                modificar su contenido a lo largo del código.
+            </p>
+            <pre><code>var saludo = 'Hola'
 var saludo = 'Hola de nuevo'
 function saludar() {
 	console.log(saludo)
 }
 saludar()</code></pre>
-			<img src="/Imagenes/var-var3.png" alt="" />
-			<p>
-				Como se puede observar el contenido de la variable saludo se ha
-				sobreescrito y ahora contiene 'Hola de nuevo'.
-			</p>
-			<p>
-				A parte de que se podría modificar su contenido por error, hay
-				otra desventaja que hace que <code>var</code> cada vez se use
-				menos para definir variables. El problema se llama hoisting, y
-				es que <code>var</code> permite declarar la variable una vez que
-				esta ya ha sido creada.
-			</p>
-			<pre><code>name = 'Pedro'
+            <img src="/Imagenes/var-var3.png" alt="" />
+            <p>
+                Como se puede observar el contenido de la variable saludo se ha
+                sobreescrito y ahora contiene 'Hola de nuevo'.
+            </p>
+            <p>
+                A parte de que se podría modificar su contenido por error, hay
+                otra desventaja que hace que <code>var</code> cada vez se use
+                menos para definir variables. El problema se llama hoisting, y
+                es que <code>var</code> permite declarar la variable una vez que
+                esta ya ha sido creada.
+            </p>
+            <pre><code>name = 'Pedro'
 console.log(name)
 var name</code></pre>
-			<img src="/Imagenes/var-var-hoist.png" alt="" />
-			<p>
-				Como se puede observar primero se crea la variable 'nombre' y
-				luego se declara y, aún así, el navegador es capaz de imprimir
-				el contenido de la variable antes de ser declarada. Esto ocurre
-				porque el intérprete busca todas las variables declaradas y las
-				carga al principio del código. Realmente lo que el intérprete ve
-				es algo así:
-			</p>
-			<pre><code>var name
+            <img src="/Imagenes/var-var-hoist.png" alt="" />
+            <p>
+                Como se puede observar primero se crea la variable 'nombre' y
+                luego se declara y, aún así, el navegador es capaz de imprimir
+                el contenido de la variable antes de ser declarada. Esto ocurre
+                porque el intérprete busca todas las variables declaradas y las
+                carga al principio del código. Realmente lo que el intérprete ve
+                es algo así:
+            </p>
+            <pre><code>var name
 name = 'Pedro'
 console.log(name)</code></pre>
-			<img src="/Imagenes/var-var-hoist2.png" alt="" />
+            <img src="/Imagenes/var-var-hoist2.png" alt="" />
 
-			<h2>Let</h2>
-			<p>
-				Una variable <code>let</code> tiene un alcance de bloque, lo que
-				significa que solo podrá ser utilizada dentro del bloque en el
-				que se declara. El bloque se encuentra delimitado por corchetes
-				<code>{}</code>. Por ejemplo, en el código siguiente:
-			</p>
-			<pre><code>function saludar() {
+            <h2>Let</h2>
+            <p>
+                Una variable <code>let</code> tiene un alcance de bloque, lo que
+                significa que solo podrá ser utilizada dentro del bloque en el
+                que se declara. El bloque se encuentra delimitado por corchetes
+                <code>{}</code>. Por ejemplo, en el código siguiente:
+            </p>
+            <pre><code>function saludar() {
 	let saludo = 'Hola'
 	console.log(saludo)
 }
 saludar()
 console.log(saludo)</code></pre>
-			<img src="/Imagenes/var-let.png" alt="" />
-			<p>
-				Si llamamos directamente a la función, como la variable saludo
-				está dentro de ella, tiene acceso a 'saludo' y, por tanto,
-				devuelve el contenido de la variable. Sin embargo, si intentamos
-				obtener el contenido de la variable desde fuera de la función,
-				el resultado es un error porque la variable 'saludo' no está
-				definida.
-			</p>
-			<p>
-				Al declarar variables con <code>let</code> se evita el problema
-				del hoisting. En este caso, el error nos dice que no se puede
-				acceder a la variable 'name' antes de declararla.
-			</p>
-			<pre><code>name = 'Pedro'
+            <img src="/Imagenes/var-let.png" alt="" />
+            <p>
+                Si llamamos directamente a la función, como la variable saludo
+                está dentro de ella, tiene acceso a 'saludo' y, por tanto,
+                devuelve el contenido de la variable. Sin embargo, si intentamos
+                obtener el contenido de la variable desde fuera de la función,
+                el resultado es un error porque la variable 'saludo' no está
+                definida.
+            </p>
+            <p>
+                Al declarar variables con <code>let</code> se evita el problema
+                del hoisting. En este caso, el error nos dice que no se puede
+                acceder a la variable 'name' antes de declararla.
+            </p>
+            <pre><code>name = 'Pedro'
 console.log(name)
 let name</code></pre>
 
-			<img src="/Imagenes/var-let-hoist.png" alt="" />
-			<p>
-				Las variables <code>let</code>, a diferencia de las
-				<code>var</code>, no se pueden redeclarar.
-			</p>
-			<pre><code>let saludo = 'Hola'
+            <img src="/Imagenes/var-let-hoist.png" alt="" />
+            <p>
+                Las variables <code>let</code>, a diferencia de las
+                <code>var</code>, no se pueden redeclarar.
+            </p>
+            <pre><code>let saludo = 'Hola'
 let saludo = 'Otro saludo diferente'
 function saludar() {
 	console.log(saludo)
 }
 saludar()</code></pre>
-			<img src="/Imagenes/var-let-rename1.png" alt="" />
-			<p>
-				Sin embargo, su contenido se puede modificar, es decir, son
-				mutables. Esto podría dar lugar a errores en el caso de
-				sobreescribir una variable que no se debería modificar.
-			</p>
+            <img src="/Imagenes/var-let-rename1.png" alt="" />
+            <p>
+                Sin embargo, su contenido se puede modificar, es decir, son
+                mutables. Esto podría dar lugar a errores en el caso de
+                sobreescribir una variable que no se debería modificar.
+            </p>
 
-			<pre><code>let saludo = 'Hola'
+            <pre><code>let saludo = 'Hola'
 saludo = 'Otro saludo diferente'
 function saludar() {
 	console.log(saludo)
 }
 saludar()</code></pre>
-			<img src="/Imagenes/var-let-rename2.png" alt="" />
+            <img src="/Imagenes/var-let-rename2.png" alt="" />
 
-			<h2>Const</h2>
-			<p>
-				Las variables <code>const</code>, al igual que las
-				<code>let</code> tienen alcance de bloque, por lo que no podrá
-				ser utilizada fuera del bloque donde se creó. La diferencia con
-				las variables <code>let</code> es que las <code>const</code> ni
-				se pueden redeclarar ni se pueden modificar, es decir, son
-				inmutables. Por tanto, se utilizan para declarar variables cuyo
-				contenido no queremos que cambie a lo largo del documento.
-			</p>
-			<pre><code>const saludo = 'Hola'
+            <h2>Const</h2>
+            <p>
+                Las variables <code>const</code>, al igual que las
+                <code>let</code> tienen alcance de bloque, por lo que no podrá
+                ser utilizada fuera del bloque donde se creó. La diferencia con
+                las variables <code>let</code> es que las <code>const</code> ni
+                se pueden redeclarar ni se pueden modificar, es decir, son
+                inmutables. Por tanto, se utilizan para declarar variables cuyo
+                contenido no queremos que cambie a lo largo del documento.
+            </p>
+            <pre><code>const saludo = 'Hola'
 saludo = 'Otro saludo diferente'
 function saludar() {
 	console.log(saludo)
 }
 saludar()</code></pre>
-			<img src="/Imagenes/var-const-rename.png" alt="" />
-			<h2>Resumen</h2>
-			<table>
-				<thead>
-					<tr>
-						<th>Característica</th>
-						<th>var</th>
-						<th>let</th>
-						<th>const</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td><strong>Alcance</strong></td>
-						<td>Global y función</td>
-						<td>Bloque</td>
-						<td>Bloque</td>
-					</tr>
-					<tr>
-						<td><strong>Redeclaración</strong></td>
-						<td>Permitida</td>
-						<td>No permitida</td>
-						<td>No permitida</td>
-					</tr>
-					<tr>
-						<td><strong>Modificación</strong></td>
-						<td>Permitida</td>
-						<td>Permitida</td>
-						<td>No permitida</td>
-					</tr>
-					<tr>
-						<td><strong>Hoisting</strong></td>
-						<td>Sí</td>
-						<td>No</td>
-						<td>No</td>
-					</tr>
-					<tr>
-						<td><strong>Se recomienda usar...</strong></td>
-						<td>No, está obsoleto</td>
-						<td>Sí</td>
-						<td>Sí, para valores constantes</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-	</body>
+            <img src="/Imagenes/var-const-rename.png" alt="" />
+            <h2>Resumen</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Característica</th>
+                        <th>var</th>
+                        <th>let</th>
+                        <th>const</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Alcance</strong></td>
+                        <td>Global y función</td>
+                        <td>Bloque</td>
+                        <td>Bloque</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Redeclaración</strong></td>
+                        <td>Permitida</td>
+                        <td>No permitida</td>
+                        <td>No permitida</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Modificación</strong></td>
+                        <td>Permitida</td>
+                        <td>Permitida</td>
+                        <td>No permitida</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hoisting</strong></td>
+                        <td>Sí</td>
+                        <td>No</td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Se recomienda usar...</strong></td>
+                        <td>No, está obsoleto</td>
+                        <td>Sí</td>
+                        <td>Sí, para valores constantes</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
 </html>

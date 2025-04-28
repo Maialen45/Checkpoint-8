@@ -1,210 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="Estilos/principal.css" />
-        <link rel="stylesheet" href="Estilos/navbar.css" />
-        <title>Documentación de JavaScript</title>
-    </head>
-    <body>
-        <ul class="navbar">
-            <li><a href="inicio.html">Inicio</a></li>
-            <li><a class="active" href="#bucles">Tipos de bucles</a></li>
-            <li><a href="variables.html">Var, let y const</a></li>
-            <li><a href="funciones-flecha.html">Funciones flecha</a></li>
-            <li>
-                <a href="deconstruccion.html">Deconstrucción de variables</a>
-            </li>
-            <li>
-                <a href="operador-extension.html">Operador de extensión</a>
-            </li>
-            <li><a href="oop.html">Programación orientada a objetos</a></li>
-            <li><a href="promesas.html">Promesas</a></li>
-            <li><a href="async-await.html">Async/await</a></li>
-        </ul>
-        <div class="contenedor">
-            <h1>Tipos de bucles</h1>
-            <p>
-                Los bucles permiten realizar una tarea repetidamente siempre y
-                cuando se cumpla una condición. Para trabajar con bucles se
-                necesitan listas (arrays) u objetos, con contenido o vacíos, en
-                función de la acción que queramos realizar. En JavaScript
-                existen, principalmente, 2 tipos de bucles: for y while.
-            </p>
-            <h2>Bucles for</h2>
-            <p>
-                Se repite la tarea hasta que la condición es determinada como
-                falsa o hasta que no haya más elementos en la lista u objeto
-                sobre el que se está iterando. Hay diferentes formas de escribir
-                un bucle for, y se utiliza una u otra en función del tipo de
-                datos con el que estemos trabajando. Existen los bucles, for,
-                for in, for of y forEach.
-            </p>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="Estilos/principal.css" />
+		<link rel="stylesheet" href="Estilos/navbar.css" />
+		<title>Documentación de JavaScript</title>
+	</head>
+	<body>
+		<ul class="navbar">
+			<li><a href="inicio.html">Inicio</a></li>
+			<li><a class="active" href="#bucles">Tipos de bucles</a></li>
+			<li><a href="variables.html">Var, let y const</a></li>
+			<li><a href="funciones-flecha.html">Funciones flecha</a></li>
+			<li>
+				<a href="deconstruccion.html">Deconstrucción de variables</a>
+			</li>
+			<li>
+				<a href="operador-extension.html">Operador de extensión</a>
+			</li>
+			<li><a href="oop.html">Programación orientada a objetos</a></li>
+			<li><a href="promesas.html">Promesas</a></li>
+			<li><a href="async-await.html">Async/await</a></li>
+		</ul>
+		<div class="contenedor">
+			<h1>Tipos de bucles</h1>
+			<p>
+				Los bucles permiten realizar una tarea repetidamente siempre y
+				cuando se cumpla una condición. Para trabajar con bucles se
+				necesitan listas (arrays) u objetos, con contenido o vacíos, en
+				función de la acción que queramos realizar. En JavaScript
+				existen, principalmente, 2 tipos de bucles: for y while.
+			</p>
+			<h2>Bucles for</h2>
+			<p>
+				Se repite la tarea hasta que la condición es determinada como
+				falsa o hasta que no haya más elementos en la lista u objeto
+				sobre el que se está iterando. Hay diferentes formas de escribir
+				un bucle for, y se utiliza una u otra en función del tipo de
+				datos con el que estemos trabajando. Existen los bucles, for,
+				for in, for of y forEach.
+			</p>
 
-            <h3>For</h3>
-            <p>
-                Esta es la forma básica de hacer un bucle. Se utiliza cuando
-                tenemos una lista con un número fijo de elementos y sabemos
-                cuántas veces queremos iterar sobre los elementos de la lista.
-                Vamos a suponer que tenemos una lista vacía y queremos llenarla
-                con números del 1 al 5.
-            </p>
-            <pre><code>let num = 0;
+			<h3>For</h3>
+			<p>
+				Esta es la forma básica de hacer un bucle. Se utiliza cuando
+				tenemos una lista con un número fijo de elementos y sabemos
+				cuántas veces queremos iterar sobre los elementos de la lista.
+				Vamos a suponer que tenemos una lista vacía y queremos llenarla
+				con números del 1 al 5.
+			</p>
+			<pre><code>let num = 0;
 for (var i = 0; i < 5; i++) {
 	num++;
 	console.log(num);
 }</code></pre>
-            <img src="/Imagenes/bucle-for.png" alt="" />
-            <p>
-                Hemos creado una variable 'num' con el número 0 y luego un bucle
-                for. Dentro del bucle for le hemos dicho que cree una variable i
-                igual a 0
-                <code>var i = 0</code>, es decir, el bucle empieza desde el 0.
-                Luego le pasamos la condición, que en este caso es que i sea
-                menor que 5 <code>i < 5</code>. Finalmente, le decimos que
-                queremos que haga con el número, que en este caso es sumarle 1
-                <code>i++</code>. El resultado es que empieza desde el 0 y,
-                siempre y cuando i sea menor que 5 (condición), le sumará uno a
-                ese número y lo imprimirá en la consola.
-            </p>
-            <h3>For in</h3>
-            <p>
-                En este caso tenemos una lista u objeto con diferentes elementos
-                y queremos iterar sobre cada elemento de la lista u objeto. El
-                bucle terminará cuando no queden más elementos en la lista sobre
-                los que iterar. Vamos a crear una lista con nombres y vamos a
-                imprimir casa nombre individualmente.
-            </p>
-            <pre><code>let nombres = ['Juan', 'Pedro', 'Paco', 'María']
+			<img src="/Documentación/Imagenes/bucle-for.png" alt="" />
+			<p>
+				Hemos creado una variable 'num' con el número 0 y luego un bucle
+				for. Dentro del bucle for le hemos dicho que cree una variable i
+				igual a 0
+				<code>var i = 0</code>, es decir, el bucle empieza desde el 0.
+				Luego le pasamos la condición, que en este caso es que i sea
+				menor que 5 <code>i < 5</code>. Finalmente, le decimos que
+				queremos que haga con el número, que en este caso es sumarle 1
+				<code>i++</code>. El resultado es que empieza desde el 0 y,
+				siempre y cuando i sea menor que 5 (condición), le sumará uno a
+				ese número y lo imprimirá en la consola.
+			</p>
+			<h3>For in</h3>
+			<p>
+				En este caso tenemos una lista u objeto con diferentes elementos
+				y queremos iterar sobre cada elemento de la lista u objeto. El
+				bucle terminará cuando no queden más elementos en la lista sobre
+				los que iterar. Vamos a crear una lista con nombres y vamos a
+				imprimir casa nombre individualmente.
+			</p>
+			<pre><code>let nombres = ['Juan', 'Pedro', 'Paco', 'María']
 for (nombre in nombres) {
 	console.log(nombres[nombre])
 }</code></pre>
-            <img src="/Imagenes/bucle-forin.png" alt="" />
-            <p>
-                La forma en la que se construye el bucle for in es mediante la
-                palabra clave <code>for</code> seguida del nombre de la variable
-                sobre la que iteramos, en singular ('nombre'), luego
-                <code>in</code> y, finalmente, el nombre de la variable
-                ('nombres'). Finalmente, para que imprima cada nombre de la
-                lista tenemos que escribir
-                <code>console.log(nombres[nombre])</code>. El problema es que lo
-                lógico sería escribir <code>console.log(nombre)</code> y, sin
-                embargo, si escribimos eso el resultado es el siguiente:
-            </p>
-            <img src="/Imagenes/bucle-forin1.png" alt="" />
-            <p>
-                Como se puede observar, en lugar de devolver los nombres,
-                devuelve el índice.
-            </p>
-            <p>
-                Este tipo de bucle también sirve para iterar sobre objetos. La
-                sintaxis es la misma que para listas, la única diferencia es
-                que, a la hora de obtener los resultado, si queremos ver la
-                clave y el valor hay que escribir
-                <code>console.log(clave, persona[clave])</code>.
-            </p>
-            <pre><code>let persona = {nombre: 'Pedro', edad: 30}
+			<img src="/Documentación/Imagenes/bucle-forin.png" alt="" />
+			<p>
+				La forma en la que se construye el bucle for in es mediante la
+				palabra clave <code>for</code> seguida del nombre de la variable
+				sobre la que iteramos, en singular ('nombre'), luego
+				<code>in</code> y, finalmente, el nombre de la variable
+				('nombres'). Finalmente, para que imprima cada nombre de la
+				lista tenemos que escribir
+				<code>console.log(nombres[nombre])</code>. El problema es que lo
+				lógico sería escribir <code>console.log(nombre)</code> y, sin
+				embargo, si escribimos eso el resultado es el siguiente:
+			</p>
+			<img src="/Documentación/Imagenes/bucle-forin1.png" alt="" />
+			<p>
+				Como se puede observar, en lugar de devolver los nombres,
+				devuelve el índice.
+			</p>
+			<p>
+				Este tipo de bucle también sirve para iterar sobre objetos. La
+				sintaxis es la misma que para listas, la única diferencia es
+				que, a la hora de obtener los resultado, si queremos ver la
+				clave y el valor hay que escribir
+				<code>console.log(clave, persona[clave])</code>.
+			</p>
+			<pre><code>let persona = {nombre: 'Pedro', edad: 30}
 for (clave in persona) {
 	console.log(clave, persona[clave])
 }</code></pre>
-            <img src="/Imagenes/bucle-forin-obj.png" alt="" />
-            <p>
-                De esta forma podemos imprimir la clave y el valor de un objeto.
-            </p>
-            <h3>For of</h3>
-            <p>
-                El bucle for of es parecido al for in, la diferencia es que en
-                for in, para obtener los valores de la lista hay que especificar
-                <code>nombres[nombre]</code>, mientras que el for of siempre te
-                va a devolver los elementos de la lista directamente. Aún así,
-                la forma de escribir el bucle es igual a la del bucle for in, a
-                diferencia de que en lugar de <code>in</code> hay que escribir
-                <code>of</code>.
-            </p>
-            <pre><code>let nombres = ['Juan', 'Pedro', 'Paco', 'María']
+			<img src="/Documentación/Imagenes/bucle-forin-obj.png" alt="" />
+			<p>
+				De esta forma podemos imprimir la clave y el valor de un objeto.
+			</p>
+			<h3>For of</h3>
+			<p>
+				El bucle for of es parecido al for in, la diferencia es que en
+				for in, para obtener los valores de la lista hay que especificar
+				<code>nombres[nombre]</code>, mientras que el for of siempre te
+				va a devolver los elementos de la lista directamente. Aún así,
+				la forma de escribir el bucle es igual a la del bucle for in, a
+				diferencia de que en lugar de <code>in</code> hay que escribir
+				<code>of</code>.
+			</p>
+			<pre><code>let nombres = ['Juan', 'Pedro', 'Paco', 'María']
 for (nombre of nombres) {
 	console.log(nombre)
 }</code></pre>
-            <img src="/Imagenes/bucle-forof.png" alt="" />
-            <h3>ForEach</h3>
-            <p>
-                Este bucle es similar a los dos anteriores. Sirve para aplicar
-                una función a cada elemento de la lista o simplemente obtener
-                los datos de cada elemento de la lista. La forma en la que se
-                escribe es la siguiente:
-            </p>
-            <pre><code>let nombres = ['Juan', 'Pedro', 'Paco', 'María']
+			<img src="/Documentación/Imagenes/bucle-forof.png" alt="" />
+			<h3>ForEach</h3>
+			<p>
+				Este bucle es similar a los dos anteriores. Sirve para aplicar
+				una función a cada elemento de la lista o simplemente obtener
+				los datos de cada elemento de la lista. La forma en la que se
+				escribe es la siguiente:
+			</p>
+			<pre><code>let nombres = ['Juan', 'Pedro', 'Paco', 'María']
 nombres.forEach((nombre) => {
 	console.log(nombre.toUpperCase())
 })</code></pre>
-            <img src="/Imagenes/bucle-foreach.png" alt="" />
-            <p>
-                Escribimos el nombre de la variable que contenga la lista,
-                seguido de <code>.forEach()</code>. En realidad
-                <code>.forEach</code> es una función, por lo que tenemos que
-                pasarle un argumento, que suele ser el nombre de la variable en
-                singular, y luego la función que queremos realizar con los
-                elementos de la lista, en este caso escribirlos en mayúsculas.
-            </p>
+			<img src="/Documentación/Imagenes/bucle-foreach.png" alt="" />
+			<p>
+				Escribimos el nombre de la variable que contenga la lista,
+				seguido de <code>.forEach()</code>. En realidad
+				<code>.forEach</code> es una función, por lo que tenemos que
+				pasarle un argumento, que suele ser el nombre de la variable en
+				singular, y luego la función que queremos realizar con los
+				elementos de la lista, en este caso escribirlos en mayúsculas.
+			</p>
 
-            <h2>Bucles while</h2>
-            Los bucles while se repiten siempre y cuando no se le diga que pare,
-            es decir, si no hay una condición en la que deben parar, son
-            infinitos. En JavaScript hay dos tipos de bucles while: while y do
-            while.
+			<h2>Bucles while</h2>
+			Los bucles while se repiten siempre y cuando no se le diga que pare,
+			es decir, si no hay una condición en la que deben parar, son
+			infinitos. En JavaScript hay dos tipos de bucles while: while y do
+			while.
 
-            <h3>While</h3>
-            <p>
-                Los bucles while se ejecutan mientras una condición sea
-                verdadera. Por ejemplo, vamos a crear un bucle que devuelva los
-                números del 1 al 5.
-            </p>
-            <pre><code>let num = 0;
+			<h3>While</h3>
+			<p>
+				Los bucles while se ejecutan mientras una condición sea
+				verdadera. Por ejemplo, vamos a crear un bucle que devuelva los
+				números del 1 al 5.
+			</p>
+			<pre><code>let num = 0;
 while (num < 5) {
 	num++;
 	console.log(num)
 }</code></pre>
-            <img src="/Imagenes/bucle-while.png" alt="" />
-            <p>
-                En realidad la funcionalidad es la misma que la del bucle for,
-                sin embargo, estos bucles necesitan un valor centinela que les
-                diga cuándo deben parar. En el ejemplo superior el valor
-                centinela sería el 5.
-            </p>
-            <h3>Bucle do while</h3>
-            <p>
-                El otro tipo de bucle while es el do while. Es similar al bucle
-                while normal, pero la diferencia radica en que el do while
-                garantiza que el bucle se ejecute al menos una vez, aunque el
-                resultado sea indefinido. Vamos a ver un ejemplo:
-            </p>
-            <pre><code>let num = 0;
+			<img src="/Documentación/Imagenes/bucle-while.png" alt="" />
+			<p>
+				En realidad la funcionalidad es la misma que la del bucle for,
+				sin embargo, estos bucles necesitan un valor centinela que les
+				diga cuándo deben parar. En el ejemplo superior el valor
+				centinela sería el 5.
+			</p>
+			<h3>Bucle do while</h3>
+			<p>
+				El otro tipo de bucle while es el do while. Es similar al bucle
+				while normal, pero la diferencia radica en que el do while
+				garantiza que el bucle se ejecute al menos una vez, aunque el
+				resultado sea indefinido. Vamos a ver un ejemplo:
+			</p>
+			<pre><code>let num = 0;
 	do {
 	  num++;
 	  console.log(num)
 	} while (num < 5)</code></pre>
-            <img src="/Imagenes/bucle-dowhile.png" alt="" />
-            <p>
-                Como se puede observar el resultado es el mismo que utilizando
-                el bucle while. Sin embargo, hay algunas diferencias en cuanto a
-                la sintaxis y a la funcionalidad. En primer lugar, la forma en
-                la que se escribe es mediante la palabra clave <code>do</code>,
-                seguida de la función que queramos realizar, que en este caso es
-                sumar 1 al número e imprimirlo en la consola. Finalmente, le
-                tenemos que pasar la condición que se debe de cumplir para que
-                se ejecute el bucle. Esto último lo haremos mediante la palabra
-                clave <code>while</code>, seguida de la condición, que en este
-                caso es que el número sea menor que 5. En segundo lugar, si
-                cambiamos el contenido de la variable num por una cadena y
-                ejecutamos el bucle, sabemos que no tiene sentido porque el
-                bucle está pensado para variables numéricas. De hecho, un bucle
-                while normal no daría ningún resultado, pero tampoco errores.
-                Sin embargo, si utilizamos el bucle do while, como garantiza que
-                el bucle se ejecute al menos una vez, el resultado que
-                obtendremos es NaN o undefined.
-            </p>
-            <img src="/Imagenes/bucle-dowhile2.png" alt="" />
-        </div>
-    </body>
+			<img src="/Documentación/Imagenes/bucle-dowhile.png" alt="" />
+			<p>
+				Como se puede observar el resultado es el mismo que utilizando
+				el bucle while. Sin embargo, hay algunas diferencias en cuanto a
+				la sintaxis y a la funcionalidad. En primer lugar, la forma en
+				la que se escribe es mediante la palabra clave <code>do</code>,
+				seguida de la función que queramos realizar, que en este caso es
+				sumar 1 al número e imprimirlo en la consola. Finalmente, le
+				tenemos que pasar la condición que se debe de cumplir para que
+				se ejecute el bucle. Esto último lo haremos mediante la palabra
+				clave <code>while</code>, seguida de la condición, que en este
+				caso es que el número sea menor que 5. En segundo lugar, si
+				cambiamos el contenido de la variable num por una cadena y
+				ejecutamos el bucle, sabemos que no tiene sentido porque el
+				bucle está pensado para variables numéricas. De hecho, un bucle
+				while normal no daría ningún resultado, pero tampoco errores.
+				Sin embargo, si utilizamos el bucle do while, como garantiza que
+				el bucle se ejecute al menos una vez, el resultado que
+				obtendremos es NaN o undefined.
+			</p>
+			<img src="/Documentación/Imagenes/bucle-dowhile2.png" alt="" />
+		</div>
+	</body>
 </html>

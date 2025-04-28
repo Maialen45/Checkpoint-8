@@ -1,48 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="Estilos/navbar.css" />
-        <link rel="stylesheet" href="Estilos/principal.css" />
-        <title>Documentación de JavaScript</title>
-    </head>
-    <body>
-        <ul class="navbar">
-            <li><a href="inicio.html">Inicio</a></li>
-            <li><a href="bucles.html">Tipos de bucles</a></li>
-            <li><a href="variables.html">Var, let y const</a></li>
-            <li><a href="funciones-flecha.html">Funciones flecha</a></li>
-            <li>
-                <a href="deconstruccion.html">Deconstrucción de variables</a>
-            </li>
-            <li>
-                <a href="operador-extension.html">Operador de extensión</a>
-            </li>
-            <li><a href="oop.html">Programación orientada a objetos</a></li>
-            <li><a href="promesas.html">Promesas</a></li>
-            <li><a class="active" href="#async-await">Async/await</a></li>
-        </ul>
-        <div class="contenedor">
-            <h1>Async/await</h1>
-            <p>
-                Al igual que se puede manejar la asincronía mediante
-                <code>.then</code>, también se puede manejar mediante
-                <code>async/await</code>. La diferencia entre
-                <code>.then</code> y <code>async/await</code> es que, en el
-                primer caso, al realizar múltiples promesas el resultado de
-                ellas se devuelve a la vez, mientras que, utilizando
-                <code>async/await</code>
-                se puede establecer el orden en el que se devuelven las
-                promesas. Además, al utilizar <code>.then</code> el resultado se
-                muestra en orden de llegada, es decir si hacemos dos promesas,
-                una para iniciar sesión y otra para actualizar los datos, es
-                posible que la segunda se ejecute antes que la primera, lo cual
-                no tendría sentido porque se estaría actualizando antes de
-                iniciar sesión en la cuenta. Para evitar eso, se utiliza
-                <code>async/await</code>.
-            </p>
-            <pre><code>const inicioSesion = () => {
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="Estilos/navbar.css" />
+		<link rel="stylesheet" href="Estilos/principal.css" />
+		<title>Documentación de JavaScript</title>
+	</head>
+	<body>
+		<ul class="navbar">
+			<li><a href="inicio.html">Inicio</a></li>
+			<li><a href="bucles.html">Tipos de bucles</a></li>
+			<li><a href="variables.html">Var, let y const</a></li>
+			<li><a href="funciones-flecha.html">Funciones flecha</a></li>
+			<li>
+				<a href="deconstruccion.html">Deconstrucción de variables</a>
+			</li>
+			<li>
+				<a href="operador-extension.html">Operador de extensión</a>
+			</li>
+			<li><a href="oop.html">Programación orientada a objetos</a></li>
+			<li><a href="promesas.html">Promesas</a></li>
+			<li><a class="active" href="#async-await">Async/await</a></li>
+		</ul>
+		<div class="contenedor">
+			<h1>Async/await</h1>
+			<p>
+				Al igual que se puede manejar la asincronía mediante
+				<code>.then</code>, también se puede manejar mediante
+				<code>async/await</code>. La diferencia entre
+				<code>.then</code> y <code>async/await</code> es que, en el
+				primer caso, al realizar múltiples promesas el resultado de
+				ellas se devuelve a la vez, mientras que, utilizando
+				<code>async/await</code>
+				se puede establecer el orden en el que se devuelven las
+				promesas. Además, al utilizar <code>.then</code> el resultado se
+				muestra en orden de llegada, es decir si hacemos dos promesas,
+				una para iniciar sesión y otra para actualizar los datos, es
+				posible que la segunda se ejecute antes que la primera, lo cual
+				no tendría sentido porque se estaría actualizando antes de
+				iniciar sesión en la cuenta. Para evitar eso, se utiliza
+				<code>async/await</code>.
+			</p>
+			<pre><code>const inicioSesion = () => {
 	return new Promise((resolve, reject) => {
 	  	setTimeout(() => {
 			resolve('El usuario inició sesión');
@@ -64,97 +64,100 @@ async function actividades() {
 }
   
 actividades();</code></pre>
-            <img src="/Imagenes/async-await.png" alt="" />
-            <p>
-                Creamos dos promesas, una para el inicio de sesión y otra para
-                actualizar los datos una vez el usuario ha iniciado sesión. A
-                cada una le ponemos un <code>setTimeout</code> para simular que
-                consulta alguna base de datos y tarda 2 segundos en devolver el
-                resultado. Y, ahora, como queremos que primero se ejecute el
-                inicio de sesión y luego se actualicen los datos, usaremos
-                <code>async/await</code>. Creamos una función actividades, que
-                regule el inicio de sesión y la actualización, y en su interior
-                creamos dos variables, una que ejecute la promesa de inicio de
-                sesión
-                <code>const returnedInicioSesion = await inicioSesion();</code>
-                y otra que regule la promesa de la actualización
-                <code>const returnedActualizacion = await actualizacion();</code
-                >. Así, nos aseguramos de que se ejecuten en ese orden. Al crear
-                la función actividades hay que escribir
-                <code>async function actividades() {}</code> y luego cada vez
-                que queramos ejecutar una promesa hay que poner
-                <code>await</code> antes de llamar a la función que contiene la
-                promesa.
-            </p>
-            <p>
-                De esta forma el resultado queda tal que así: llamamos a la
-                función actividades, tras 2 segundos obtenemos 'El usuario
-                inició sesión' y, tras otros 2 segundos, obtenemos 'Actualizando
-                datos...'
-            </p>
-            <p>
-                Si en lugar de obtener cada resultado de manera independiente
-                queremos obtener los dos resultados a la vez, asegurandonos de
-                que siempre se ejecute primero el de inicio de sesión y después
-                el de actualización, tendremos que modificar un poco el código
-                anterior.
-            </p>
-            <img src="/Imagenes/async-await1.png" alt="" />
-            <p>
-                Los cambios realizados se muestran subrayados en rojo en la
-                imagen superior. En lugar de crear una función sin argumentos
-                <code>actividades()</code>, le pasamos dos argumentos, uno para
-                el inicio de sesión y otro para la actualización, cuyos nombres
-                no tienen por qué coincidir con los nombres de las funciones
-                reales. También tenemos que cambiar
-                <code>await inicioSesion</code> y
-                <code>await actualizacion</code> ya que ahora no tenemos que
-                ejecutar una función en sí, sino que tenemos que ejecutar la
-                función que pasemos como argumento. Finalmente, al llamar a la
-                función 'actividades' tenemos que pasar las funciones que
-                queremos ejecutar, <code>inicioSesion()</code> y
-                <code>actualizacion()</code>.
-            </p>
-            <p>
-                El resultado es que, en lugar de esperar 2 segundos, obtener
-                primero el resultado de inicioSesion y al de dos segundos
-                obtener el de la actualización, espera dos segundos y devuelve
-                ambos resultados, pero siempre en ese orden.
-            </p>
-            <h2>Comunicación con APIs mediante async/await</h2>
-            <p>
-                Con <code>async/await</code> también tenemos la posibilidad de
-                comunicarnos con APIs. La consulta se haría de la siguiente
-                manera:
-            </p>
-            <pre><code>async function consulta() {
+			<img
+				src="Documentación/Documentación/Imagenes/async-await.png"
+				alt=""
+			/>
+			<p>
+				Creamos dos promesas, una para el inicio de sesión y otra para
+				actualizar los datos una vez el usuario ha iniciado sesión. A
+				cada una le ponemos un <code>setTimeout</code> para simular que
+				consulta alguna base de datos y tarda 2 segundos en devolver el
+				resultado. Y, ahora, como queremos que primero se ejecute el
+				inicio de sesión y luego se actualicen los datos, usaremos
+				<code>async/await</code>. Creamos una función actividades, que
+				regule el inicio de sesión y la actualización, y en su interior
+				creamos dos variables, una que ejecute la promesa de inicio de
+				sesión
+				<code>const returnedInicioSesion = await inicioSesion();</code>
+				y otra que regule la promesa de la actualización
+				<code>const returnedActualizacion = await actualizacion();</code
+				>. Así, nos aseguramos de que se ejecuten en ese orden. Al crear
+				la función actividades hay que escribir
+				<code>async function actividades() {}</code> y luego cada vez
+				que queramos ejecutar una promesa hay que poner
+				<code>await</code> antes de llamar a la función que contiene la
+				promesa.
+			</p>
+			<p>
+				De esta forma el resultado queda tal que así: llamamos a la
+				función actividades, tras 2 segundos obtenemos 'El usuario
+				inició sesión' y, tras otros 2 segundos, obtenemos 'Actualizando
+				datos...'
+			</p>
+			<p>
+				Si en lugar de obtener cada resultado de manera independiente
+				queremos obtener los dos resultados a la vez, asegurandonos de
+				que siempre se ejecute primero el de inicio de sesión y después
+				el de actualización, tendremos que modificar un poco el código
+				anterior.
+			</p>
+			<img src="/Documentación/Imagenes/async-await1.png" alt="" />
+			<p>
+				Los cambios realizados se muestran subrayados en rojo en la
+				imagen superior. En lugar de crear una función sin argumentos
+				<code>actividades()</code>, le pasamos dos argumentos, uno para
+				el inicio de sesión y otro para la actualización, cuyos nombres
+				no tienen por qué coincidir con los nombres de las funciones
+				reales. También tenemos que cambiar
+				<code>await inicioSesion</code> y
+				<code>await actualizacion</code> ya que ahora no tenemos que
+				ejecutar una función en sí, sino que tenemos que ejecutar la
+				función que pasemos como argumento. Finalmente, al llamar a la
+				función 'actividades' tenemos que pasar las funciones que
+				queremos ejecutar, <code>inicioSesion()</code> y
+				<code>actualizacion()</code>.
+			</p>
+			<p>
+				El resultado es que, en lugar de esperar 2 segundos, obtener
+				primero el resultado de inicioSesion y al de dos segundos
+				obtener el de la actualización, espera dos segundos y devuelve
+				ambos resultados, pero siempre en ese orden.
+			</p>
+			<h2>Comunicación con APIs mediante async/await</h2>
+			<p>
+				Con <code>async/await</code> también tenemos la posibilidad de
+				comunicarnos con APIs. La consulta se haría de la siguiente
+				manera:
+			</p>
+			<pre><code>async function consulta() {
 	const promesa = fetch('https://jsonplaceholder.typicode.com/posts');
 	const posts = await promesa.then(data => data.json());
 	console.log(posts);
 }
   
 consulta();</code></pre>
-            <img src="/Imagenes/async-await-api.png" alt="" />
-            <p>
-                Creamos una función para realizar la consulta con la palabra
-                clave <code>async</code> al inicio. En su interior creamos una
-                variable que contiene la palabra clave <code>fetch</code>, que
-                ya incluye la creación de la promesa. Luego creamos otra
-                variable que contiene la promesa precedido por la palabra clave
-                <code>await</code>. Y a esa promesa le añadimos
-                <code>.then(data => data.json())</code>, es decir, queremos
-                convertir el resultado en formato json. Finalmente, imprimimos
-                los posts en la consola.
-            </p>
+			<img src="/Documentación/Imagenes/async-await-api.png" alt="" />
+			<p>
+				Creamos una función para realizar la consulta con la palabra
+				clave <code>async</code> al inicio. En su interior creamos una
+				variable que contiene la palabra clave <code>fetch</code>, que
+				ya incluye la creación de la promesa. Luego creamos otra
+				variable que contiene la promesa precedido por la palabra clave
+				<code>await</code>. Y a esa promesa le añadimos
+				<code>.then(data => data.json())</code>, es decir, queremos
+				convertir el resultado en formato json. Finalmente, imprimimos
+				los posts en la consola.
+			</p>
 
-            <h2>Manejo de errores</h2>
-            <p>
-                Al igual que en las promesas con <code>.then</code> podíamos
-                crear un error que se ejecutara cuando la promesa no se
-                resolvía, con <code>async/await</code> también se puede. Para
-                ello utilizaremos <code>try/catch</code>.
-            </p>
-            <pre><code>async function consulta() {
+			<h2>Manejo de errores</h2>
+			<p>
+				Al igual que en las promesas con <code>.then</code> podíamos
+				crear un error que se ejecutara cuando la promesa no se
+				resolvía, con <code>async/await</code> también se puede. Para
+				ello utilizaremos <code>try/catch</code>.
+			</p>
+			<pre><code>async function consulta() {
 	try {
 		const promesa = fetch("https://jsonplaceholder.typicode.com/posts");
 		const post = await promesa.then((data) => data.json());
@@ -164,34 +167,40 @@ consulta();</code></pre>
 	}
 }
 consulta();</code></pre>
-            <img src="/Imagenes/async-await-api-trycatch.png" alt="" />
-            <p>
-                Ahora, en lugar de realizar directamente la petición, hemos
-                creado un try-catch. En <code>try</code> tenemos que poner lo
-                que queremos que se ejecute si la promesa se resuelve. Esto es,
-                queremos hacer la promesa <code>const promesa = fetch</code>
-                <code>("https://jsonplaceholder.typicode.com/posts");</code>,
-                queremos obtener los resultados <code>const post = await</code>
-                <code>promesa.then((data) => data.json());</code>
-                y queremos imprimir el resultado en la consola
-                <code>console.log(post)</code>. Si la promesa no se resolviera
-                debido a algún error, queremos que la consola muestre un error
-                que diga 'Ha ocurrido un error'
-                <code>console.error("Ha ocurrido un error");</code>
-            </p>
-            <p>
-                El resultado de la imagen superior muestra la sintaxis que
-                habría que utilizar para ser capaces de manejar errores en
-                <code>async/await</code> y también muestra el resultado si la
-                promesa se ha resuelto. Vamos a ver que pasa si hubiera un error
-                en la url y, en lugar de poner 'https' ponemos 'http'.
-            </p>
-            <img src="/Imagenes/async-await-api-trycatch-error.png" alt="" />
-            <p>
-                Ahora la url no es correcta, por lo que no puede obtener los
-                datos de la API, y se crea un error en la consola que dice 'Ha
-                ocurrido un error'.
-            </p>
-        </div>
-    </body>
+			<img
+				src="/Documentación/Imagenes/async-await-api-trycatch.png"
+				alt=""
+			/>
+			<p>
+				Ahora, en lugar de realizar directamente la petición, hemos
+				creado un try-catch. En <code>try</code> tenemos que poner lo
+				que queremos que se ejecute si la promesa se resuelve. Esto es,
+				queremos hacer la promesa <code>const promesa = fetch</code>
+				<code>("https://jsonplaceholder.typicode.com/posts");</code>,
+				queremos obtener los resultados <code>const post = await</code>
+				<code>promesa.then((data) => data.json());</code>
+				y queremos imprimir el resultado en la consola
+				<code>console.log(post)</code>. Si la promesa no se resolviera
+				debido a algún error, queremos que la consola muestre un error
+				que diga 'Ha ocurrido un error'
+				<code>console.error("Ha ocurrido un error");</code>
+			</p>
+			<p>
+				El resultado de la imagen superior muestra la sintaxis que
+				habría que utilizar para ser capaces de manejar errores en
+				<code>async/await</code> y también muestra el resultado si la
+				promesa se ha resuelto. Vamos a ver que pasa si hubiera un error
+				en la url y, en lugar de poner 'https' ponemos 'http'.
+			</p>
+			<img
+				src="/Documentación/Imagenes/async-await-api-trycatch-error.png"
+				alt=""
+			/>
+			<p>
+				Ahora la url no es correcta, por lo que no puede obtener los
+				datos de la API, y se crea un error en la consola que dice 'Ha
+				ocurrido un error'.
+			</p>
+		</div>
+	</body>
 </html>

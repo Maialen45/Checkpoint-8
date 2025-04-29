@@ -1,125 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="Estilos/navbar.css" />
-		<link rel="stylesheet" href="Estilos/principal.css" />
-		<title>Documentación de JavaScript</title>
-	</head>
-	<body>
-		<ul class="navbar">
-			<li><a href="inicio.html">Inicio</a></li>
-			<li><a href="bucles.html">Tipos de bucles</a></li>
-			<li><a href="variables.html">Var, let y const</a></li>
-			<li>
-				<a class="active" href="#funciones-flecha">Funciones flecha</a>
-			</li>
-			<li>
-				<a href="deconstruccion.html">Deconstrucción de variables</a>
-			</li>
-			<li>
-				<a href="operador-extension.html">Operador de extensión</a>
-			</li>
-			<li><a href="oop.html">Programación orientada a objetos</a></li>
-			<li><a href="promesas.html">Promesas</a></li>
-			<li><a href="async-await.html">Async/await</a></li>
-		</ul>
-		<div class="contenedor">
-			<h1>Funciones flecha</h1>
-			<p>
-				Las funciones flecha son otra forma de definir funciones. En
-				JavaScript existen las declaraciones de funciones, las
-				expresiones de funciones y las funciones flecha. Vamos repasar
-				rápidamente las dos primeras y luego profundizaremos en la
-				tercera. Realizaremos todas ellas con la misma función, para ver
-				las diferencias, y, finalmente, crearemos una función algo más
-				compleja utilizando la función flecha.
-			</p>
-			<h2>Declaración de función</h2>
-			<p>
-				Para declarar una función utilizaremos la palabra
-				<code>function</code> seguida del nombre de la función y, entre
-				paréntesis, los argumentos, si los hubiera. Luego, entre
-				corchetes añadiremos la acción que debe realizar la función. A
-				continuación se puede observar una declaración de función muy
-				sencilla.
-			</p>
-			<pre><code>function saludar() {
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="Estilos/navbar.css" />
+        <link rel="stylesheet" href="Estilos/principal.css" />
+        <title>Documentación de JavaScript</title>
+    </head>
+    <body>
+        <ul class="navbar">
+            <li><a href="inicio.html">Inicio</a></li>
+            <li><a href="bucles.html">Tipos de bucles</a></li>
+            <li><a href="variables.html">Var, let y const</a></li>
+            <li>
+                <a class="active" href="#funciones-flecha">Funciones flecha</a>
+            </li>
+            <li>
+                <a href="deconstruccion.html">Deconstrucción de variables</a>
+            </li>
+            <li>
+                <a href="operador-extension.html">Operador de extensión</a>
+            </li>
+            <li><a href="oop.html">Programación orientada a objetos</a></li>
+            <li><a href="promesas.html">Promesas</a></li>
+            <li><a href="async-await.html">Async/await</a></li>
+        </ul>
+        <div class="contenedor">
+            <h1>Funciones flecha</h1>
+            <p>
+                Las funciones flecha son otra forma de definir funciones. En
+                JavaScript existen las declaraciones de funciones, las
+                expresiones de funciones y las funciones flecha. Vamos repasar
+                rápidamente las dos primeras y luego profundizaremos en la
+                tercera. Realizaremos todas ellas con la misma función, para ver
+                las diferencias, y, finalmente, crearemos una función algo más
+                compleja utilizando la función flecha.
+            </p>
+            <h2>Declaración de función</h2>
+            <p>
+                Para declarar una función utilizaremos la palabra
+                <code>function</code> seguida del nombre de la función y, entre
+                paréntesis, los argumentos, si los hubiera. Luego, entre
+                corchetes añadiremos la acción que debe realizar la función. A
+                continuación se puede observar una declaración de función muy
+                sencilla.
+            </p>
+            <pre><code>function saludar() {
 	console.log('Hola')
 }
 saludar()</code></pre>
-			<img src="/Documentación/Imagenes/arrow-func-dec.png" alt="" />
-			En este caso el nombre de la función es 'saludar', no tiene
-			argumentos y la acción que realiza es imprimir 'Hola' en la consola.
-			Como la propia función ya imprime en la consola el 'Hola', para
-			ejecutarla basta con llamarla (<code>saludar()</code>), no hay que
-			poner <code>console.log(saludar())</code>.
+            <img src="Imagenes/arrow-func-dec.png" alt="" />
+            En este caso el nombre de la función es 'saludar', no tiene
+            argumentos y la acción que realiza es imprimir 'Hola' en la consola.
+            Como la propia función ya imprime en la consola el 'Hola', para
+            ejecutarla basta con llamarla (<code>saludar()</code>), no hay que
+            poner <code>console.log(saludar())</code>.
 
-			<h2>Expresión de función</h2>
-			<p>
-				Para expresar una función, esta debe de estar dentro de una
-				variable. Esto es, primero hay que crear una variable utilizando
-				<code>var</code>, <code>let</code> o <code>const</code> y en el
-				interior de esta variable vamos a crear la función. En este
-				caso, la palabra clave <code>function</code> la utilizaremos
-				dentro de la variable, seguida de los argumentos entre
-				paréntesis, si los hubiera. Siguiendo con el ejemplo anterior,
-			</p>
-			<pre><code>const saludar = function() {
+            <h2>Expresión de función</h2>
+            <p>
+                Para expresar una función, esta debe de estar dentro de una
+                variable. Esto es, primero hay que crear una variable utilizando
+                <code>var</code>, <code>let</code> o <code>const</code> y en el
+                interior de esta variable vamos a crear la función. En este
+                caso, la palabra clave <code>function</code> la utilizaremos
+                dentro de la variable, seguida de los argumentos entre
+                paréntesis, si los hubiera. Siguiendo con el ejemplo anterior,
+            </p>
+            <pre><code>const saludar = function() {
 	console.log('Hola')
 }
 saludar()</code></pre>
-			<img
-				src="/Documentación/Imagenes/arrow-func-exp.png"
-				alt=""
-				srcset=""
-			/>
-			<p>
-				Como se puede observar, el resultado es el mismo que utilizando
-				la declaración de función. Sin embargo, de esta forma estamos
-				almacenando la función dentro de una variable y el nombre de la
-				función será el nombre de la propia variable.
-			</p>
-			<h2>Función flecha</h2>
-			<p>
-				Para crear una función flecha también es necesario crear una
-				variable con <code>var</code>, <code>let</code> o
-				<code>const</code>. Dentro de esta variable escribiremos entre
-				paréntesis los argumentos, si los hay, y la acción que debe
-				realizar la función. Vamos a ver como quedaría siguiendo el
-				ejemplo anterior.
-			</p>
-			<pre><code>const saludar = (() => {
+            <img src="Imagenes/arrow-func-exp.png" alt="" srcset="" />
+            <p>
+                Como se puede observar, el resultado es el mismo que utilizando
+                la declaración de función. Sin embargo, de esta forma estamos
+                almacenando la función dentro de una variable y el nombre de la
+                función será el nombre de la propia variable.
+            </p>
+            <h2>Función flecha</h2>
+            <p>
+                Para crear una función flecha también es necesario crear una
+                variable con <code>var</code>, <code>let</code> o
+                <code>const</code>. Dentro de esta variable escribiremos entre
+                paréntesis los argumentos, si los hay, y la acción que debe
+                realizar la función. Vamos a ver como quedaría siguiendo el
+                ejemplo anterior.
+            </p>
+            <pre><code>const saludar = (() => {
 	console.log('Hola')
 })
 saludar()</code></pre>
-			<img src="/Documentación/Imagenes/arrow-basic.png" alt="" />
-			<p>
-				Se crea la variable 'saludar' y dentro añadimos, primero los
-				argumentos entre paréntesis (en este caso no hay) y luego la
-				flecha <code>=></code> seguido de la acción que realiza la
-				función, entre corchetes.
-			</p>
-			<p>
-				Si solo hubiera un argumento, no sería necesario poner los
-				paréntesis. Por ejemplo,
-			</p>
-			<pre><code>const saludar = ((nombre) => {
+            <img src="Imagenes/arrow-basic.png" alt="" />
+            <p>
+                Se crea la variable 'saludar' y dentro añadimos, primero los
+                argumentos entre paréntesis (en este caso no hay) y luego la
+                flecha <code>=></code> seguido de la acción que realiza la
+                función, entre corchetes.
+            </p>
+            <p>
+                Si solo hubiera un argumento, no sería necesario poner los
+                paréntesis. Por ejemplo,
+            </p>
+            <pre><code>const saludar = ((nombre) => {
 	console.log(`Hola ${nombre}`)
 })
 saludar('Paco')</code></pre>
-			<img src="/Documentación/Imagenes/arrow-1arg.png" alt="" />
-			<img src="/Documentación/Imagenes/arrow-1arg1.png" alt="" />
-			<p>
-				Como se puede observar, el resultado es el mismo si ponemos el
-				argumento entre paréntesis o si no.
-			</p>
-			<p>
-				Si pasamos más de un argumento, entonces los paréntesis son
-				necesarios. Vamos a ver una función flecha un poco más compleja.
-			</p>
-			<pre><code>const alquilar = ((nombre, edad) => {
+            <img src="Imagenes/arrow-1arg.png" alt="" />
+            <img src="Imagenes/arrow-1arg1.png" alt="" />
+            <p>
+                Como se puede observar, el resultado es el mismo si ponemos el
+                argumento entre paréntesis o si no.
+            </p>
+            <p>
+                Si pasamos más de un argumento, entonces los paréntesis son
+                necesarios. Vamos a ver una función flecha un poco más compleja.
+            </p>
+            <pre><code>const alquilar = ((nombre, edad) => {
 	if (edad >= 25) {
 		console.log(`Hola ${nombre}, tienes ${edad} años y puedes alquilar un coche`)
 	} else {
@@ -127,14 +123,14 @@ saludar('Paco')</code></pre>
 })
 alquilar('Paco', 50)
 alquilar('José', 16)</code></pre>
-			<img src="/Documentación/Imagenes/arrow-2arg.png" alt="" />
-			<p>
-				En algunos casos es imprescindible utilizar las funciones
-				flecha, ya que en el caso de utilizar otro tipo de funciones,
-				estas no van a funcionar. Esto es común cuando hay que crear una
-				función dentro de una variable this. Por ejemplo en este caso,
-			</p>
-			<pre><code>function Saludar(nombre, apellido) {
+            <img src="Imagenes/arrow-2arg.png" alt="" />
+            <p>
+                En algunos casos es imprescindible utilizar las funciones
+                flecha, ya que en el caso de utilizar otro tipo de funciones,
+                estas no van a funcionar. Esto es común cuando hay que crear una
+                función dentro de una variable this. Por ejemplo en este caso,
+            </p>
+            <pre><code>function Saludar(nombre, apellido) {
 	this.nombre = nombre;
 	this.apellido = apellido;
   
@@ -144,24 +140,24 @@ alquilar('José', 16)</code></pre>
 }
   
 const saludo = new Saludar('Paco', 'Pérez')</code></pre>
-			<img src="/Documentación/Imagenes/arrow-this.png" alt="" />
-			<p>
-				Tenemos una función 'Saludar' con dos argumentos, el nombre y el
-				apellido. Dentro de la función hay dos variables con la palabra
-				clave <code>this</code>, que hace referencia a los argumentos de
-				la función. Además de estas variables hay otra que es
-				<code>this.nombreCompleto</code> que contiene una función. La
-				función setInterval() permite obtener un resultado cada 3
-				segundos (3000 milisegundos) en este caso. Una vez creada la
-				función, creamos una variable 'saludo' que contiene un objeto
-				'Saludar' con un nombre y un apellido concreto. De esta forma,
-				cada 3 segundos se imprimirá en la consola "Hola Paco Pérez".
-			</p>
-			<p>
-				Vamos a ver que pasa si, en lugar de utilizar una función
-				flecha, utilizamos una función convencional.
-			</p>
-			<pre><code>function Saludar(nombre, apellido) {
+            <img src="Imagenes/arrow-this.png" alt="" />
+            <p>
+                Tenemos una función 'Saludar' con dos argumentos, el nombre y el
+                apellido. Dentro de la función hay dos variables con la palabra
+                clave <code>this</code>, que hace referencia a los argumentos de
+                la función. Además de estas variables hay otra que es
+                <code>this.nombreCompleto</code> que contiene una función. La
+                función setInterval() permite obtener un resultado cada 3
+                segundos (3000 milisegundos) en este caso. Una vez creada la
+                función, creamos una variable 'saludo' que contiene un objeto
+                'Saludar' con un nombre y un apellido concreto. De esta forma,
+                cada 3 segundos se imprimirá en la consola "Hola Paco Pérez".
+            </p>
+            <p>
+                Vamos a ver que pasa si, en lugar de utilizar una función
+                flecha, utilizamos una función convencional.
+            </p>
+            <pre><code>function Saludar(nombre, apellido) {
 	this.nombre = nombre;
 	this.apellido = apellido;
   
@@ -170,14 +166,14 @@ const saludo = new Saludar('Paco', 'Pérez')</code></pre>
 	}, 3000);
 }
 const saludo = new Saludar('Paco', 'Pérez')</code></pre>
-			<img src="/Documentación/Imagenes/arrow-this-error.png" alt="" />
-			<p>
-				Lo que pasa en este caso es que la función 'nombreApellidos' no
-				reconoce <code>this.nombre</code> ni
-				<code>this.apellido</code> y el resultado es "Hola undefined
-				undefined". Por tanto, en este caso, utilizando la palabra clave
-				<code>this</code> es necesario utilizar la función flecha.
-			</p>
-		</div>
-	</body>
+            <img src="Imagenes/arrow-this-error.png" alt="" />
+            <p>
+                Lo que pasa en este caso es que la función 'nombreApellidos' no
+                reconoce <code>this.nombre</code> ni
+                <code>this.apellido</code> y el resultado es "Hola undefined
+                undefined". Por tanto, en este caso, utilizando la palabra clave
+                <code>this</code> es necesario utilizar la función flecha.
+            </p>
+        </div>
+    </body>
 </html>

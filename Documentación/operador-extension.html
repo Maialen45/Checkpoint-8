@@ -1,161 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="Estilos/navbar.css" />
-		<link rel="stylesheet" href="Estilos/principal.css" />
-		<title>Documentación de JavaScript</title>
-	</head>
-	<body>
-		<ul class="navbar">
-			<li><a href="inicio.html">Inicio</a></li>
-			<li><a href="bucles.html">Tipos de bucles</a></li>
-			<li><a href="variables.html">Var, let y const</a></li>
-			<li><a href="funciones-flecha.html">Funciones flecha</a></li>
-			<li>
-				<a href="deconstruccion.html">Deconstrucción de variables</a>
-			</li>
-			<li>
-				<a class="active" href="#operador-extension"
-					>Operador de extensión</a
-				>
-			</li>
-			<li><a href="oop.html">Programación orientada a objetos</a></li>
-			<li><a href="promesas.html">Promesas</a></li>
-			<li><a href="async-await.html">Async/await</a></li>
-		</ul>
-		<div class="contenedor">
-			<h1>Operador de extensión</h1>
-			<p>
-				El operador de extensión tiene múltiples usos que vamos a ir
-				viendo. La forma en la que se expresa el operador es mediante
-				tres puntos <code>...</code> seguidos de una palabra.
-			</p>
-			<h2>Combinación de listas</h2>
-			<p>
-				El primer caso de uso que vamos a ver es la combinación de
-				listas. El uso del operador de extensión permite juntar
-				literalmente dos listas. Si utilizaramos el método tradicional
-				para juntar dos listas, el resultado sería el siguiente:
-			</p>
-			<pre><code>let numeros = [1, 2, 3, 4, 5]
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="Estilos/navbar.css" />
+        <link rel="stylesheet" href="Estilos/principal.css" />
+        <title>Documentación de JavaScript</title>
+    </head>
+    <body>
+        <ul class="navbar">
+            <li><a href="inicio.html">Inicio</a></li>
+            <li><a href="bucles.html">Tipos de bucles</a></li>
+            <li><a href="variables.html">Var, let y const</a></li>
+            <li><a href="funciones-flecha.html">Funciones flecha</a></li>
+            <li>
+                <a href="deconstruccion.html">Deconstrucción de variables</a>
+            </li>
+            <li>
+                <a class="active" href="#operador-extension"
+                    >Operador de extensión</a
+                >
+            </li>
+            <li><a href="oop.html">Programación orientada a objetos</a></li>
+            <li><a href="promesas.html">Promesas</a></li>
+            <li><a href="async-await.html">Async/await</a></li>
+        </ul>
+        <div class="contenedor">
+            <h1>Operador de extensión</h1>
+            <p>
+                El operador de extensión tiene múltiples usos que vamos a ir
+                viendo. La forma en la que se expresa el operador es mediante
+                tres puntos <code>...</code> seguidos de una palabra.
+            </p>
+            <h2>Combinación de listas</h2>
+            <p>
+                El primer caso de uso que vamos a ver es la combinación de
+                listas. El uso del operador de extensión permite juntar
+                literalmente dos listas. Si utilizaramos el método tradicional
+                para juntar dos listas, el resultado sería el siguiente:
+            </p>
+            <pre><code>let numeros = [1, 2, 3, 4, 5]
 let masNumeros = [6, 7, 8]
 numeros.push(masNumeros)
 console.log(numeros)</code></pre>
-			<img src="/Documentación/Imagenes/spread-arrays.png" alt="" />
-			<p>
-				Como se puede observar, en realidad no combina ambas listas sino
-				que mete la lista 'masNumeros' dentro de 'numeros'. Para obtener
-				el resultado deseado, que es combinar ambas listas, debemos
-				utilizar el operador de extensión.
-			</p>
-			<pre><code>let numeros = [1, 2, 3, 4, 5]
+            <img src="Imagenes/spread-arrays.png" alt="" />
+            <p>
+                Como se puede observar, en realidad no combina ambas listas sino
+                que mete la lista 'masNumeros' dentro de 'numeros'. Para obtener
+                el resultado deseado, que es combinar ambas listas, debemos
+                utilizar el operador de extensión.
+            </p>
+            <pre><code>let numeros = [1, 2, 3, 4, 5]
 let masNumeros = [6, 7, 8]
 numeros.push(...masNumeros)
 console.log(numeros)</code></pre>
-			<img src="/Documentación/Imagenes/spread-arrays1.png" alt="" />
-			<p>
-				Al añadir los tres puntos antes de la variable que queremos
-				juntar (numeros.push(...masNumeros)), se combinan ambas listas,
-				obteniendo así una única lista con los números del 1 al 8.
-			</p>
-			<h2>Copiar listas</h2>
-			<p>
-				El segundo uso del operador de extensión es copiar listas. Si en
-				lugar de modificar la lista original, queremos crear una copia
-				de esa lista original que además contenga la segunda lista,
-				necesitaremos el operador. Para ello vamos a crear una nueva
-				variable que contendrá la lista 'numeros'. Luego a esa lista
-				añadiremos algunos números más.
-			</p>
-			<pre><code>let numeros = [1, 2, 3, 4, 5]
+            <img src="Imagenes/spread-arrays1.png" alt="" />
+            <p>
+                Al añadir los tres puntos antes de la variable que queremos
+                juntar (numeros.push(...masNumeros)), se combinan ambas listas,
+                obteniendo así una única lista con los números del 1 al 8.
+            </p>
+            <h2>Copiar listas</h2>
+            <p>
+                El segundo uso del operador de extensión es copiar listas. Si en
+                lugar de modificar la lista original, queremos crear una copia
+                de esa lista original que además contenga la segunda lista,
+                necesitaremos el operador. Para ello vamos a crear una nueva
+                variable que contendrá la lista 'numeros'. Luego a esa lista
+                añadiremos algunos números más.
+            </p>
+            <pre><code>let numeros = [1, 2, 3, 4, 5]
 let masNumeros = [6, 7, 8]
 	
 const copiaNumeros = [...numeros]
 copiaNumeros.push(...masNumeros)
 	
 console.log(copiaNumeros)</code></pre>
-			<img src="/Documentación/Imagenes/spread-arr-copy.png" alt="" />
-			<p>
-				En este caso lo que estoy haciendo es utilizar el operador para
-				copiar la variable 'numero' en 'copiaNumeros' y, posteriormente,
-				estoy utilizando el operador para combinar las dos listas. Ahora
-				la lista de números del 1 al 8 ya no está en 'numeros' sino que
-				está en una nueva variable que es 'copiaNumeros'.
-			</p>
-			<p>
-				Si en lugar de utilizar el operador de expansión le decimos
-				<code>const copiaNumeros = numeros</code>, estaríamos
-				sobreescribiendo la variable 'numeros'.
-			</p>
-			<img src="/Documentación/Imagenes/spread-arr-copy-err.png" alt="" />
-			<p>
-				Como se puede observar, el contenido de la variable 'numeros' se
-				ha sobreescrito, de forma que ahora 'numeros' y 'copiaNumeros'
-				tienen el mismo contenido, la lista del 1 al 8.
-			</p>
-			<h2>Pasar argumentos a funciones</h2>
-			<p>
-				Otro uso del operador de extensión es para pasar argumentos a
-				funciones. Vamos a probarlo con la función
-				<code>Math.max()</code> que encuentra en número más grande entre
-				una lista de números.
-			</p>
-			<pre><code>console.log(Math.max(1, 3, 10, 8, 4))</code></pre>
-			<img src="/Documentación/Imagenes/spread-math.png" alt="" />
-			<p>
-				Si pasamos los numeros directamente en la función, nos devuelve
-				el resultado correcto, en este caso 10. Sin embargo, veamos lo
-				que pasa si, en lugar de pasar los números directamente a la
-				función, intentamos pasar una lista con los números.
-			</p>
-			<pre><code>let numeros = [1, 3, 10, 8, 4]
+            <img src="Imagenes/spread-arr-copy.png" alt="" />
+            <p>
+                En este caso lo que estoy haciendo es utilizar el operador para
+                copiar la variable 'numero' en 'copiaNumeros' y, posteriormente,
+                estoy utilizando el operador para combinar las dos listas. Ahora
+                la lista de números del 1 al 8 ya no está en 'numeros' sino que
+                está en una nueva variable que es 'copiaNumeros'.
+            </p>
+            <p>
+                Si en lugar de utilizar el operador de expansión le decimos
+                <code>const copiaNumeros = numeros</code>, estaríamos
+                sobreescribiendo la variable 'numeros'.
+            </p>
+            <img src="Imagenes/spread-arr-copy-err.png" alt="" />
+            <p>
+                Como se puede observar, el contenido de la variable 'numeros' se
+                ha sobreescrito, de forma que ahora 'numeros' y 'copiaNumeros'
+                tienen el mismo contenido, la lista del 1 al 8.
+            </p>
+            <h2>Pasar argumentos a funciones</h2>
+            <p>
+                Otro uso del operador de extensión es para pasar argumentos a
+                funciones. Vamos a probarlo con la función
+                <code>Math.max()</code> que encuentra en número más grande entre
+                una lista de números.
+            </p>
+            <pre><code>console.log(Math.max(1, 3, 10, 8, 4))</code></pre>
+            <img src="Imagenes/spread-math.png" alt="" />
+            <p>
+                Si pasamos los numeros directamente en la función, nos devuelve
+                el resultado correcto, en este caso 10. Sin embargo, veamos lo
+                que pasa si, en lugar de pasar los números directamente a la
+                función, intentamos pasar una lista con los números.
+            </p>
+            <pre><code>let numeros = [1, 3, 10, 8, 4]
 console.log(Math.max(numeros))</code></pre>
-			<img src="/Documentación/Imagenes/spread-math-err.png" alt="" />
-			<p>
-				Como se puede observar el resultado es NaN porque no entiende
-				que lo que estamos pasando como argumento es una lista con
-				números. Para poder pasar una lista con números y que el
-				resultado sea el correcto, hay que utilizar el operador de
-				extensión.
-			</p>
-			<pre><code>let numeros = [1, 3, 10, 8, 4]
+            <img src="Imagenes/spread-math-err.png" alt="" />
+            <p>
+                Como se puede observar el resultado es NaN porque no entiende
+                que lo que estamos pasando como argumento es una lista con
+                números. Para poder pasar una lista con números y que el
+                resultado sea el correcto, hay que utilizar el operador de
+                extensión.
+            </p>
+            <pre><code>let numeros = [1, 3, 10, 8, 4]
 console.log(Math.max(...numeros))</code></pre>
-			<img src="/Documentación/Imagenes/spread-math-err.png" alt="" />
-			<p>
-				Ahora entiende la lista como una serie de números y la función
-				<code>Math.max()</code> devuelve el número más alto.
-			</p>
-			<h2>Deconstrucción de objetos</h2>
-			<p>
-				El último uso del operador es para deconstruir objetos. Vamos a
-				suponer que tenemos un objeto con muchos elementos y queremos
-				separarlo en variables. Queremos que los dos primeros elementos
-				tengan cada uno una variable y, el resto de elementos, queden
-				almacenados todos ellos en una tercera variable.
-			</p>
-			<pre><code>const persona = {nombre: 'Paco', edad: 31, apellido: 'Pérez', ciudad: 'Madrid', coche: true}
+            <img src="Imagenes/spread-math-err.png" alt="" />
+            <p>
+                Ahora entiende la lista como una serie de números y la función
+                <code>Math.max()</code> devuelve el número más alto.
+            </p>
+            <h2>Deconstrucción de objetos</h2>
+            <p>
+                El último uso del operador es para deconstruir objetos. Vamos a
+                suponer que tenemos un objeto con muchos elementos y queremos
+                separarlo en variables. Queremos que los dos primeros elementos
+                tengan cada uno una variable y, el resto de elementos, queden
+                almacenados todos ellos en una tercera variable.
+            </p>
+            <pre><code>const persona = {nombre: 'Paco', edad: 31, apellido: 'Pérez', ciudad: 'Madrid', coche: true}
 const {nombre, edad, ...otrosDatos} = persona
 console.log(nombre)
 console.log(edad)
 console.log(otrosDatos)</code></pre>
-			<img src="/Documentación/Imagenes/spread-decons.png" alt="" />
-			<p>
-				En primer lugar, creamos una variable objeto con diferentes
-				características de una persona. Y luego, queremos separar los
-				datos de forma que el nombre y la edad sean cada uno una
-				variable, y el resto de datos queden en forma de lista en una
-				tercera variable que se llame 'otrosDatos'. Para ello se puede
-				utilizar la sintaxis que aparece en el ejemplo. Es decir,
-				creamos una variable nombre, una variable y una variable
-				otrosDatos y, a esta última le añadimos tres puntos antes de la
-				palabra que indican que contendrá el resto de elementos de la
-				lista original. Así, el resultado es una variable nombre que
-				contiene 'Paco', una variale edad que contiene '31' y una
-				variable otrosDatos que contiene el apellido, la ciudad y si
-				tiene coche.
-			</p>
-		</div>
-	</body>
+            <img src="Imagenes/spread-decons.png" alt="" />
+            <p>
+                En primer lugar, creamos una variable objeto con diferentes
+                características de una persona. Y luego, queremos separar los
+                datos de forma que el nombre y la edad sean cada uno una
+                variable, y el resto de datos queden en forma de lista en una
+                tercera variable que se llame 'otrosDatos'. Para ello se puede
+                utilizar la sintaxis que aparece en el ejemplo. Es decir,
+                creamos una variable nombre, una variable y una variable
+                otrosDatos y, a esta última le añadimos tres puntos antes de la
+                palabra que indican que contendrá el resto de elementos de la
+                lista original. Así, el resultado es una variable nombre que
+                contiene 'Paco', una variale edad que contiene '31' y una
+                variable otrosDatos que contiene el apellido, la ciudad y si
+                tiene coche.
+            </p>
+        </div>
+    </body>
 </html>

@@ -1,111 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="Estilos/navbar.css" />
-		<link rel="stylesheet" href="Estilos/principal.css" />
-		<title>Documentación de JavaScript</title>
-	</head>
-	<body>
-		<ul class="navbar">
-			<li><a href="inicio.html">Inicio</a></li>
-			<li><a href="bucles.html">Tipos de bucles</a></li>
-			<li><a href="variables.html">Var, let y const</a></li>
-			<li><a href="funciones-flecha.html">Funciones flecha</a></li>
-			<li>
-				<a class="active" href="#deconstruccion"
-					>Deconstrucción de variables</a
-				>
-			</li>
-			<li>
-				<a href="operador-extension.html">Operador de extensión</a>
-			</li>
-			<li><a href="oop.html">Programación orientada a objetos</a></li>
-			<li><a href="promesas.html">Promesas</a></li>
-			<li><a href="async-await.html">Async/await</a></li>
-		</ul>
-		<div class="contenedor">
-			<h1>Deconstrucción de variables</h1>
-			<p>
-				La deconstrucción o desestructuración es una forma de extraer
-				valores de listas o de objetos. Es muy útil cuando tenemos una
-				lista con muchos valores y queremos deshacer la lista para poder
-				utilizar los valores independientemente. Los valores extraídos
-				se pueden asignar a variables.
-			</p>
-			<h2>Deconstrucción de listas</h2>
-			<p>
-				Para desestructurar una lista hay que declarar una variable cuyo
-				nombre sean los nombres de las futuras variables independientes
-				entre corchetes. Y esta variable tiene que ser igual al nombre
-				de la variable que contiene la lista. Pongamos que tenemos una
-				lista con colores y queremos desestructurar esa lista de forma
-				que cada color quede asignado a una fruta.
-			</p>
-			<pre><code>const colores = ['verde', 'amarillo', 'rojo']
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="Estilos/navbar.css" />
+        <link rel="stylesheet" href="Estilos/principal.css" />
+        <title>Documentación de JavaScript</title>
+    </head>
+    <body>
+        <ul class="navbar">
+            <li><a href="inicio.html">Inicio</a></li>
+            <li><a href="bucles.html">Tipos de bucles</a></li>
+            <li><a href="variables.html">Var, let y const</a></li>
+            <li><a href="funciones-flecha.html">Funciones flecha</a></li>
+            <li>
+                <a class="active" href="#deconstruccion"
+                    >Deconstrucción de variables</a
+                >
+            </li>
+            <li>
+                <a href="operador-extension.html">Operador de extensión</a>
+            </li>
+            <li><a href="oop.html">Programación orientada a objetos</a></li>
+            <li><a href="promesas.html">Promesas</a></li>
+            <li><a href="async-await.html">Async/await</a></li>
+        </ul>
+        <div class="contenedor">
+            <h1>Deconstrucción de variables</h1>
+            <p>
+                La deconstrucción o desestructuración es una forma de extraer
+                valores de listas o de objetos. Es muy útil cuando tenemos una
+                lista con muchos valores y queremos deshacer la lista para poder
+                utilizar los valores independientemente. Los valores extraídos
+                se pueden asignar a variables.
+            </p>
+            <h2>Deconstrucción de listas</h2>
+            <p>
+                Para desestructurar una lista hay que declarar una variable cuyo
+                nombre sean los nombres de las futuras variables independientes
+                entre corchetes. Y esta variable tiene que ser igual al nombre
+                de la variable que contiene la lista. Pongamos que tenemos una
+                lista con colores y queremos desestructurar esa lista de forma
+                que cada color quede asignado a una fruta.
+            </p>
+            <pre><code>const colores = ['verde', 'amarillo', 'rojo']
 const [manzana, plátano, fresa] = colores
 console.log(manzana)
 console.log(plátano)
 console.log(fresa)</code></pre>
-			<img src="/Documentación/Imagenes/decons-array.png" alt="" />
-			<p>
-				En este caso la lista original se llama 'colores', entonces
-				tenemos que crear una variable nueva que contiene los nombres de
-				las varaibles individuales que queremos crear ('manzana,
-				plátano, fresa') y esto igualarlo a 'colores'. Como se puede
-				observar se han creado 3 nuevas variables 'manzana', 'plátano' y
-				'fresa' que contienen los colores de la lista. Estas nuevas
-				variables son de tipo cadena.
-			</p>
-			<h2>Deconstrucción de objetos</h2>
-			<p>
-				Lo mismo que hemos realizado con la lista se puede realizar con
-				un objeto.
-			</p>
-			<pre><code>const persona = {nombre: 'Paco', apellido: 'García', edad: 30, ciudad: 'Madrid'}
+            <img src="Imagenes/decons-array.png" alt="" />
+            <p>
+                En este caso la lista original se llama 'colores', entonces
+                tenemos que crear una variable nueva que contiene los nombres de
+                las varaibles individuales que queremos crear ('manzana,
+                plátano, fresa') y esto igualarlo a 'colores'. Como se puede
+                observar se han creado 3 nuevas variables 'manzana', 'plátano' y
+                'fresa' que contienen los colores de la lista. Estas nuevas
+                variables son de tipo cadena.
+            </p>
+            <h2>Deconstrucción de objetos</h2>
+            <p>
+                Lo mismo que hemos realizado con la lista se puede realizar con
+                un objeto.
+            </p>
+            <pre><code>const persona = {nombre: 'Paco', apellido: 'García', edad: 30, ciudad: 'Madrid'}
 const {nombre, ciudad} = persona
 console.log(nombre)
 console.log(ciudad)</code></pre>
-			<img src="/Documentación/Imagenes/decons-obj.png" alt="" />
-			<p>
-				En este caso tenemos un objeto con información sobre una persona
-				y queremos individualizar los datos. Si queremos extraer el
-				nombre y la ciudad de la persona esos son los nombres que
-				tenemos que pasar a la nueva variable que estamos creando. Es
-				decir, si en lugar de <code>{nombre, ciudad}</code> ponemos
-				otros valores que no se encuentran en el objeto, el resultado
-				será <code>undefined</code>. En resto funciona igual que con los
-				arrays, esta nueva variable debe de ser igual al nombre de la
-				variable que contiene el objeto ('persona'). El resultado es que
-				ahora 'nombre' y 'ciudad' son variables de tipo cadena.
-			</p>
-			<p>
-				La deconstrucción de objetos permite pasar elementos del objeto
-				como argumentos de una función. Siguiendo con el ejemplo de los
-				datos de la persona, podríamos pasar el nombre y el apellido de
-				la persona como argumentos y generar una función que devuelva un
-				saludo. Para pasar elementos de un objeto como argumentos
-				debemos colocarlos entre corchetes. En realidad estos elementos
-				pasarán a ser variables individuales de tipo cadena, en este
-				caso.
-			</p>
-			<pre><code>const persona = {nombre: 'Paco', apellido: 'García', edad: 30, ciudad: 'Madrid'}
+            <img src="Imagenes/decons-obj.png" alt="" />
+            <p>
+                En este caso tenemos un objeto con información sobre una persona
+                y queremos individualizar los datos. Si queremos extraer el
+                nombre y la ciudad de la persona esos son los nombres que
+                tenemos que pasar a la nueva variable que estamos creando. Es
+                decir, si en lugar de <code>{nombre, ciudad}</code> ponemos
+                otros valores que no se encuentran en el objeto, el resultado
+                será <code>undefined</code>. En resto funciona igual que con los
+                arrays, esta nueva variable debe de ser igual al nombre de la
+                variable que contiene el objeto ('persona'). El resultado es que
+                ahora 'nombre' y 'ciudad' son variables de tipo cadena.
+            </p>
+            <p>
+                La deconstrucción de objetos permite pasar elementos del objeto
+                como argumentos de una función. Siguiendo con el ejemplo de los
+                datos de la persona, podríamos pasar el nombre y el apellido de
+                la persona como argumentos y generar una función que devuelva un
+                saludo. Para pasar elementos de un objeto como argumentos
+                debemos colocarlos entre corchetes. En realidad estos elementos
+                pasarán a ser variables individuales de tipo cadena, en este
+                caso.
+            </p>
+            <pre><code>const persona = {nombre: 'Paco', apellido: 'García', edad: 30, ciudad: 'Madrid'}
 const saludar = (({nombre, apellido}) => {
 	console.log(`Hola ${nombre} ${apellido}`)})
 saludar(persona)</code></pre>
-			<img src="/Documentación/Imagenes/decons-obj-args.png" alt="" />
-			<p>
-				Pasamos <code>({nombre, apellido})</code> como argumentos y, al
-				llamar a la función pasamos la variable que contiene el objeto,
-				en este caso 'persona'.
-			</p>
-			<h2>Intercambio de variables mediante deconstrucción</h2>
-			<p>
-				Por último, la deconstrucción también se puede utilizar para
-				intercambiar el contenido de dos variables de forma sencilla.
-			</p>
-			<pre><code>let manzana = 'amarillo';
+            <img src="Imagenes/decons-obj-args.png" alt="" />
+            <p>
+                Pasamos <code>({nombre, apellido})</code> como argumentos y, al
+                llamar a la función pasamos la variable que contiene el objeto,
+                en este caso 'persona'.
+            </p>
+            <h2>Intercambio de variables mediante deconstrucción</h2>
+            <p>
+                Por último, la deconstrucción también se puede utilizar para
+                intercambiar el contenido de dos variables de forma sencilla.
+            </p>
+            <pre><code>let manzana = 'amarillo';
 let plátano = 'verde';
 [manzana, plátano] = [plátano, manzana];
 
@@ -113,21 +113,21 @@ console.log(`
 Manzana: ${manzana}
 Plátano: ${plátano}
 `);</code></pre>
-			<img src="/Documentación/Imagenes/decons-swap.png" alt="" />
-			<p>
-				Creamos dos variables, manzana y plátano, e igualamos dos listas
-				con los nombres de esad variables, es decir,
-				<code>[manzana, plátano] = [plátano, manzana]</code>. Como se
-				puede observar, al imprimir los nombres de las variables, el
-				contenido de ellas se ha intercambiado.
-			</p>
-			<p>
-				Un detalle importante es que al crear las variables debemos
-				utilizar <code>var</code> o <code>let</code>. Si utilizamos
-				<code>const</code> nos dará un error debido a la característica
-				inmutable de las variables declaradas con <code>const</code>.
-			</p>
-			<img src="/Documentación/Imagenes/decons-swap-err.png" alt="" />
-		</div>
-	</body>
+            <img src="Imagenes/decons-swap.png" alt="" />
+            <p>
+                Creamos dos variables, manzana y plátano, e igualamos dos listas
+                con los nombres de esad variables, es decir,
+                <code>[manzana, plátano] = [plátano, manzana]</code>. Como se
+                puede observar, al imprimir los nombres de las variables, el
+                contenido de ellas se ha intercambiado.
+            </p>
+            <p>
+                Un detalle importante es que al crear las variables debemos
+                utilizar <code>var</code> o <code>let</code>. Si utilizamos
+                <code>const</code> nos dará un error debido a la característica
+                inmutable de las variables declaradas con <code>const</code>.
+            </p>
+            <img src="Imagenes/decons-swap-err.png" alt="" />
+        </div>
+    </body>
 </html>
